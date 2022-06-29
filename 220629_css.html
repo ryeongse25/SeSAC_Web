@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <style type="text/css">
+            .text-deco { text-decoration: line-through; }
+            h1 { color: red; }
+            h2 { 
+                color: blue; 
+                text-decoration: underline; 
+            }
+            h3 { 
+                color: green;
+                text-shadow: 3px 1px 1px #000000
+            }
+            span {
+                color: orange;
+                font-size: large;
+                font-weight: bold;
+            }
+            hr {
+                border: 10px;
+                border-style: dotted;
+            }
+            p {
+                background-color: aqua;
+            }
+            img {
+                width: 200px;
+                cursor: pointer;
+            }
+            div {
+                background-color: bisque;
+                border-radius: 50px;
+                width: 100px;
+                height: 100px;
+                border: 3px red solid;
+            }
+            .class1 { color: red; }
+            #value1:hover { cursor: pointer; }
+            /* body의 자식 div 선택 */
+            body > div {}
+            /* h1의 바로 다음 ul 형제 하나만 선택 */
+            h1 + ul {}
+            /* h1 다음에 나오는 모든 ul 형제 선택 */
+            h1 ~ ul {}
+            E::active {}
+            E::hover {}
+            E::focus {}
+            E::visited {}
+        </style>
+    </head>
+
+    <body>
+        <h1 class="class1">제목1</h1>
+        <h2 class="class1">제목2</h2>
+        <h3 id="value1" class="class1 text-deco">제목3</h3>
+        <span>Span 태그</span>
+        <hr>
+        <p>p 태그입니다.</p>
+        <img src="/Users/user/Downloads/img1.jpeg">
+        <div></div>
+    </body>
+</html>

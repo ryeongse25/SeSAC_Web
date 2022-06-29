@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>position</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+            }
+            /* default: static */
+            #div1 { background-color: orange; }
+            /* relative: static 상태를 기준으로 */
+            #div2 {
+                background-color: green;
+                position: relative;
+                left: 100px;
+            }
+            /* absolute: 부모 relative를 기준으로 */
+            #div3 {
+                background-color: blue;
+                position: absolute;
+                left: 50px;
+            }
+            /* fixed: 원하는 위치에 고정 */
+            #div4 {
+                background-color: black;
+                position: fixed;
+                left: 50px;
+                top: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="div1"></div>
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+        <div id="div4"></div>
+    </body>
+</html>
