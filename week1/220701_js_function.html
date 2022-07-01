@@ -1,0 +1,31 @@
+<html>
+    <head></head>
+        <script>
+            // 작업 할 내용
+
+            // 기본 값은 undefined
+            // 전역 변수 (함수 안에서도 사용 가능)
+            let num;
+
+            // 함수 선언
+            function hello() {
+                // 지역 변수 (이 함수 scope안에서만 사용 가능)
+                let num = 10;
+                // 경고창 띄우기
+                // 10
+                alert( num ); 
+            }
+
+            // 함수 실행
+            hello();
+            // undefined
+            alert(num);
+
+            // const: 상수 > 선언과 동시에 값을 할당해야 함
+        </script>
+    </head>
+
+    <body>
+        
+    </body>
+</html>
