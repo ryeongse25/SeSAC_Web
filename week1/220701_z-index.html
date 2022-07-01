@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <!-- z-index는 static이랑 fixed에서 작동하지 않음 -->
+        <!-- 부모의 z-index가 우선 -->
+        <!-- z-index의 기본 값은 0 -->
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+                /* position: absolute는 부모 relative를 기준으로 위치가 지정되는데 부모 relative가 없을 때는 body를 기준으로 위치가 지정된다. */
+                position: absolute;
+            }
+            #div1 {
+                background-color: rosybrown;
+            }
+            #div2 {
+                background-color: greenyellow;
+                left: 50px;
+            }
+            #div3 {
+                background-color: lightskyblue;
+                left: 100px;
+                /* 제일 앞으로 나오게 된다. */
+                z-index: 1;
+            }
+            #div4 {
+                background-color: lightpink;
+                left: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+    </body>
+</html>
