@@ -28,8 +28,27 @@ input {
     font-size: 30px;
 }
 
-div {
+#calculator {
     background-color: black;
     width: 370px;
     padding: 0px 4px 5px 4px;
+}
+
+#btn_result {
+    height: 180px;
+    background-color: rgb(255, 128, 0);
+    color: white;
+}
+
+.not-working {
+    background: gray;
+}
+
+#memo {
+    margin-left: 20px;
+    width: 500px;
+}
+
+#container {
+    display: flex;
 }
