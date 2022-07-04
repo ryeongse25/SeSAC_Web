@@ -3,5 +3,28 @@
         // 날짜 초기화
         let date = new Date();
         console.log(date);
+        // 년도 가져오기
+        console.log(date.getFullYear());
+        // 월 가져오기 (0부터 11까지)
+        console.log(date.getMonth());
+        // 일 가져오기
+        console.log(date.getDate());
+        // 요일 가져오기 (Sun -> 0, Mon -> 1 ...)
+        console.log(date.getDay());
+        // 시간 가져오기 (1970년부터 지금까지 흘러온 시간 ms)
+        console.log(date.getTime());
+        // 시 가져오기
+        console.log(date.getHours());
+
+        console.log(Math.min(1, 2, -10));
+        console.log(Math.max(1, 2, -10));
+        // 0 ~ 1 사이에서 랜덤한 값을 출력
+        console.log(Math.random());
+        // 큰 값에서 작은 값을 빼고 작은 값을 더한다
+        Math.random() * (20 - 10) + 10
+        // 반올림, 내림, 올림
+        console.log(Math.round(10.9));
+        console.log(Math.floor(10.9));
+        console.log(Math.ceil(10.9));
     </script>
 </html>
