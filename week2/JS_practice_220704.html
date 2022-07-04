@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <script>
+            function add(input1, input2) {
+                return input1 + input2;
+            }
+            function minus(input1, input2) {
+                return input1 - input2;
+            }
+            function multiple(input1, input2) {
+                return input1 * input2;
+            }
+            function divide(input1, input2) {
+                return input1 / input2;
+            }
+
+            function calculator() {
+                let input1 = document.getElementById("input1");
+                let input2 = document.getElementById("input2");
+                input1 = Number(input1.value);
+                input2 = Number(input2.value);
+                let operator = document.getElementById("operator");
+                let result = document.getElementById("result");
+
+                if (operator.value == "+") {
+                    result.value = add(input1, input2);
+                }
+                if (operator.value == "-") {
+                    result.value = minus(input1, input2);
+                }
+                if (operator.value == "*") {
+                    result.value = multiple(input1, input2);
+                }
+                if (operator.value == "/") {
+                    result.value = divide(input1, input2);
+                }
+            }
+            
+            function reset() {
+                let input1 = document.getElementById("input1");
+                let input2 = document.getElementById("input2");
+                let operator = document.getElementById("operator");
+                let result = document.getElementById("result");
+                input1.value = "";
+                input2.value = "";
+                operator.value = "";
+                result.value = "";
+            }
+        </script>
+    </head>
+    <body>
+        값1: <input type="text" id="input1"> <br>
+        값2: <input type="text" id="input2"> <br>
+        연산자: <input type="text" id="operator"> <br>
+        결과: <input type="text" id="result"> <br> <br>
+        <button type="button" onclick="calculator();">계산하기</button>
+        <button type="button" onclick="reset();">초기화</button>
+    </body>
+</html>
