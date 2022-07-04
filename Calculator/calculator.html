@@ -1,0 +1,94 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function clicked(number) {
+      let input1 = document.getElementById("input1");
+      input1.value += number;
+    }
+
+    function btn_result() {
+      let input1 = document.getElementById("input1");
+      let history = document.getElementById("history");
+      let equation = document.getElementById("input1").value;
+
+      if (equation.includes("+")) {
+        new_equation = equation.split("+");
+        result = Number(new_equation[0]) + Number(new_equation[1]);
+      }
+      if (equation.includes("-")) {
+        new_equation = equation.split("-");
+        result = Number(new_equation[0]) - Number(new_equation[1]);
+      }
+      if (equation.includes("*")) {
+        new_equation = equation.split("*");
+        result = Number(new_equation[0]) * Number(new_equation[1]);
+      }
+      if (equation.includes("/")) {
+        new_equation = equation.split("/");
+        result = Number(new_equation[0]) / Number(new_equation[1]);
+      }
+
+      input1.value = result;
+      history.value = equation;
+    }
+
+    function reset() {
+      let input1 = document.getElementById("input1");
+      input1.value = "";
+    }
+  </script>
+</head>
+
+<body>
+  <div>
+    <input type="text" id="history">
+    <input type="text" id="input1" />
+    <table cellspacing="0" style="text-align: center">
+      <tr>
+        <td><button type="button" onclick="reset();">AC</button></td>
+        <td><button type="button">+/-</button></td>
+        <td><button type="button" onclick="clicked('%')">%</button></td>
+        <td>
+          <button type="button" id="btn_divide" class="operators" onclick="clicked('/')">/</button>
+        </td>
+      </tr>
+      <tr>
+        <td><button type="button" onclick="clicked(7);">7</button></td>
+        <td><button type="button" onclick="clicked(8);">8</button></td>
+        <td><button type="button" onclick="clicked(9);">9</button></td>
+        <td>
+          <button type="button" id="btn_multiple" class="operators" onclick="clicked('*');">*</button>
+        </td>
+      </tr>
+      <tr>
+        <td><button type="button" onclick="clicked(4);">4</button></td>
+        <td><button type="button" onclick="clicked(5);">5</button></td>
+        <td><button type="button" onclick="clicked(6);">6</button></td>
+        <td>
+          <button type="button" id="btn_minus" class="operators" onclick="clicked('-');">-</button>
+        </td>
+      </tr>
+      <tr>
+        <td><button type="button" onclick="clicked(1);">1</button></td>
+        <td><button type="button" onclick="clicked(2);">2</button></td>
+        <td><button type="button" onclick="clicked(3);">3</button></td>
+        <td>
+          <button type="button" id="btn_plus" class="operators" onclick="clicked('+');">+</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button type="button" style="width: 180px; border-radius: 50px" onclick="clicked(0);">0</button>
+        </td>
+        <td><button type="button" onclick="clicked('.')">.</button></td>
+        <td>
+          <button type="button" id="btn_result" class="operators" onclick="btn_result();">=</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>
