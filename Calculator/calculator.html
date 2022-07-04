@@ -40,6 +40,7 @@
       }
 
       result = eval(equation);
+      result = result.toFixed(13);
 
       input1.value = result;
       history.value = equation;
@@ -125,6 +126,7 @@
         <li>AC 버튼: 초기화</li>
         <li>&lt 버튼: Delete</li>
         <li>% 버튼: *0.01로 replace해서 계산해줌</li>
+        <li>toFixed()를 이용하여 결과값의 소수점 자리수의 길이를 제한해줌</li>
       </ul>
       <h4>수정할 점</h4>
       <ul>
@@ -132,7 +134,8 @@
         <li>연산자가 여러번 입력될 수 있다</li>
         <li>+/- 버튼 작동 안함</li>
         <li>%가 입력되었을 때 수식이 *0.01로 치환돼서 %가 아닌 *0.01이 기록됨</li>
-        <li>숫자가 넘어갔을 때 더이상 입력되지 않게 하기</li>
+        <li>결과값이 너무 클 때, 지수 사용하기</li>
+        <li>eval()함수를 사용하지 않고 구현할 수 있을까</li>
       </ul>
     </div>
   </div>
