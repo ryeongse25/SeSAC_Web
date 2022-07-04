@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <style>
+            div { background-color: aquamarine; }
+            p { background-color: pink; }
+            .text { color: red; }
+        </style>
+
+        <script>
+            function addNode() {
+                let p1 = document.createElement("p");
+                let div1 = document.getElementById("div1");
+                
+                p1.innerText = "p태그입니다.";
+                p1.className = "text";
+                p1.style = "text-align: center;"
+
+                let img = document.createElement("img");
+                img.src = "/Users/user/Downloads/img1.jpeg";
+                img.width = 100;
+
+                // div1에 새로운 요소 추가하기
+                div1.appendChild(p1);
+                div1.appendChild(img);
+            }
+
+            function change() {
+                // 문서를 전부 지우고 새로 쓰기
+                document.write("<h1>안녕</h1>");
+            }
+
+            function removeNode() {
+                let div1 = document.getElementById("div1");
+                // 배열 형태로 저장 됨
+                let child = document.getElementsByClassName("text");
+                console.log(child[0]);
+                // 한 개의 요소만 지울 수 있다
+                // div1.removeChild(child[0]);
+                child[0].remove();
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="div1">div1</div>
+        <div id="div2">div2</div>
+        <button type="button" onclick="addNode();">add</button>
+        <button type="button" onclick="change();">change</button>
+        <button type="button" onclick="removeNode();">remove</button>
+    </body>
+</html>
