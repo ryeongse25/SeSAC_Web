@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>타이틀</title>
+        <meta charset="UTF-8">
+        <!-- head 태그 안에 script를 두면 로딩 속도가 길다 -->
+        <script>
+            // 문서의 모든 요소 가져오기
+            console.log(document.documentElement);
+            console.log(document.head);
+            console.log(document.title);
+            console.log(document.body);
+            console.log(document.URL);
+            // 사이트 주소
+            console.log(document.domain);
+        </script>
+    </head>
+    <body>
+        <div>
+            <p>안녕</p>
+        </div>
+        <!-- body 태그 안에 script를 두면 코드를 아직 못읽었을 때 실행이 안될 수도 있다 -->
+        <script>
+            console.log(document.body);
+        </script>
+    </body>
+</html>
