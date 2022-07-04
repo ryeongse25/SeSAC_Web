@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <style>
+            button {
+                border: none;
+            }
+        </style>
+        <script>
+            // function add(num1, num2) {
+            //     return num1 + num2;
+            // }
+            // function minus(num1, num2) {
+            //     return num1 - num2;
+            // }
+            // function multiple(num1, num2) {
+            //     return num1 * num2;
+            // }
+            // function divide(num1, num2) {
+            //     return num1 / num2;
+            // }
+
+            function clicked(number) {
+                let input1 = document.getElementById("input1");
+                input1.value += number;
+            }
+
+           
+            // function btn_plus() {
+            //     let btn_plus = document.getElementById("btn_plus");
+            //     let number = Number(document.getElementById("input1").value);
+            //     btn_plus = btn_plus.innerText;
+            //     write(btn_plus);
+            //     return number;
+            // }
+            // function btn_minus() {
+            //     let btn_minus = document.getElementById("btn_minus");
+            //     let number = Number(document.getElementById("input1").value);
+            //     btn_minus = btn_minus.innerText;
+            //     write(btn_minus);
+            //     return number;
+            // }
+            // function btn_multiple() {
+            //     let btn_multiple = document.getElementById("btn_multiple");
+            //     let number = Number(document.getElementById("input1").value);
+            //     btn_multiple = btn_multiple.innerText;
+            //     write(btn_multiple);
+            //     return number;
+            // }
+            // function btn_divide() {
+            //     let btn_divide = document.getElementById("btn_divide");
+            //     let number = Number(document.getElementById("input1").value);
+            //     btn_divide = btn_divide.innerText;
+            //     write(btn_divide);
+            //     return number;
+            // }
+            function btn_result() {
+                let input1 = document.getElementById("input1");
+                let equation = document.getElementById("input1").value;
+
+                if (equation.includes("+")) {
+                    equation = equation.split("+");
+                    result = Number(equation[0]) + Number(equation[1]);
+                }
+                if (equation.includes("-")) {
+                    equation = equation.split("-");
+                    result = Number(equation[0]) - Number(equation[1]);
+                }
+                if (equation.includes("*")) {
+                    equation = equation.split("*");
+                    result = Number(equation[0]) * Number(equation[1]);
+                }
+                if (equation.includes("/")) {
+                    equation = equation.split("/");
+                    result = Number(equation[0]) / Number(equation[1]);
+                }
+
+                input1.value = result;
+            }
+
+            function reset() {
+                let input1 = document.getElementById("input1");
+                input1.value = "";
+            }
+
+            // if (operator.value == "+") {
+            //     result.value = add(input1, input2);
+            // }
+            // if (operator.value == "-") {
+            //     result.value = minus(input1, input2);
+            // }
+            // if (operator.value == "*") {
+            //     result.value = multiple(input1, input2);
+            // }
+            // if (operator.value == "/") {
+            //     result.value = divide(input1, input2);
+            // }
+        </script>
+    </head>
+    
+    <body>
+        <input type="text" id="input1" size="20">
+        <table border="1" cellspacing="0" width="145" style="text-align: center;">
+            <tr>
+                <td><button type="button" onclick="reset();">AC</button></td>
+                <td><button type="button" onclick=";">+/-</button></td>
+                <td><button type="button" onclick=";">%</button></td>
+                <td><button type="button" id="btn_divide" onclick="clicked('/')" style="background-color: orange; color: white;">/</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="clicked(7);">7</button></td>
+                <td><button type="button" onclick="clicked(8);">8</button></td>
+                <td><button type="button" onclick="clicked(9);">9</button></td>
+                <td><button type="button" id="btn_multiple" onclick="clicked('*');" style="background-color: orange; color: white;">*</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="clicked(4);">4</button></td>
+                <td><button type="button" onclick="clicked(5);">5</button></td>
+                <td><button type="button" onclick="clicked(6);">6</button></td>
+                <td><button type="button" id="btn_minus" onclick="clicked('-');" style="background-color: orange; color: white;">-</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="clicked(1);">1</button></td>
+                <td><button type="button" onclick="clicked(2);">2</button></td>
+                <td><button type="button" onclick="clicked(3);">3</button></td>
+                <td><button type="button" id="btn_plus" onclick="clicked('+');" style="background-color: orange; color: white;">+</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="button" onclick="clicked(0);">0</button></td>
+                <td><button type="button" onclick="clicked('.')">.</button></td>
+                <td><button type="button" id="btn_result" onclick="btn_result();" style="background-color: orange; color: white;">=</button></td>
+            </tr>
+        </table>
+    </body>
+</html>
