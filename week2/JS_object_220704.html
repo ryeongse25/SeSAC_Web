@@ -1,0 +1,68 @@
+<html>
+    <script>
+        let cat = {
+            name: "나비",
+            age: 1,
+            mew: function() {
+                return "야옹";
+            }
+        };
+        console.log(cat);
+        // 객체의 속성 가져오기
+        console.log(cat.name);
+        // 객체의 매소드 실행하기
+        console.log(cat.mew());
+
+        let arr1 = [1, 2, 3, "Hello", "Hi"];
+        // 배열의 길이
+        console.log(arr1.length);
+        // 배열의 끝에 원소를 추가
+        arr1.push("Bye");
+        console.log(arr1);
+        // 배열의 마지막 원소 제거
+        arr1.pop();
+        console.log(arr1);
+        // 배열의 맨 처음에 원소 추가
+        arr1.unshift(0)
+        console.log(arr1);
+        // 배열의 가장 앞 원소를 제거
+        arr1.shift();
+        console.log(arr1);
+        // 값의 인덱스 찾기 > 3
+        console.log(arr1.indexOf("Hello"));
+
+        // Dictionary
+        let me = {
+            name: 'seryeong',
+            birth: '1120'
+        };
+        me['gender']='F';
+        console.log(me['name']);
+
+        // 기본 자료형은 값을 복사, 객체 자료형은 메모리 주소를 참조
+        let a = 1;
+        let b = a;
+        console.log("a : ", a);
+        console.log("b : ", b);
+        a = 10;
+        console.log("a : ", a);
+        console.log("b : ", b);
+
+        let a1 = [1, 2, 3, 4, 5];
+        let a2 = a1;
+        console.log("a1 : ", a1);
+        console.log("a2 : ", a2);
+        a1.pop();
+        console.log("a1 : ", a1);
+        console.log("a2 : ", a2);
+
+        // 자료형 확인
+        console.log(typeof(10));
+
+        // 자료형 변환
+        console.log(typeof(String(10)));
+        console.log(typeof((10).toString()));
+        console.log(typeof(Number('10')));
+        console.log(typeof(parseInt('10')));
+    </script>
+</html>
