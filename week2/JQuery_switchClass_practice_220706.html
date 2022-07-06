@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="../jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+        <link rel="stylesheet" href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+        <style>
+            .css1 { background-color: red; }
+            .css2 { background-color: orange; }
+            .css3 { background-color: yellow; }
+            .css4 { background-color: green; }
+            .css5 { background-color: blue; }
+            .css6 { background-color: purple; }
+        </style>
+    </head>
+    <body>
+        <div class="css1" style="width: 100; height: 100;" onclick="changeColor()"></div>
+        <script>
+            let i = 1;
+            function changeColor() {
+                if (i == 6) {
+                    $("div").switchClass("css6", "css1");
+                    i = 1;
+                } else {
+                    $("div").switchClass(`css${i}`, `css${i+1}`);
+                }
+                i++;
+            }
+            // var colors = ['css1','css2','css3','css4','css5','css6'];
+            // function changeColor(){
+            //     var now = $("div").attr("class");
+            //     var i = colors.indexOf(now);
+            //     if ( i == colors.length - 1 ) $("div").switchClass(now, colors[0]);
+            //     else $("div").switchClass(now, colors[i+1]);
+            //     }
+        </script>
+    </body>
+</html>
