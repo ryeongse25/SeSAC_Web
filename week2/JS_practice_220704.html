@@ -37,14 +37,10 @@
             }
             
             function reset() {
-                let input1 = document.getElementById("input1");
-                let input2 = document.getElementById("input2");
-                let operator = document.getElementById("operator");
-                let result = document.getElementById("result");
-                input1.value = "";
-                input2.value = "";
-                operator.value = "";
-                result.value = "";
+                let inputs = document.querySelectorAll("input");
+                for (let i=0; i < inputs.length; i++) {
+                    inputs[i].value = ""
+                }
             }
         </script>
     </head>
