@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
+            function setValue() {
+                // 값 설정하기
+                $("#input1").val("setting");
+            }
+            function getValue() {
+                // 값 가져오기
+                alert($("#input1").val());
+            }
+            function changeStyle() {
+                // css 바꾸기
+                $("span").css("color", "orange");
+                $("span").css("font-size", "28px");
+            }
+            function changeText() {
+                // innerText
+                $("span").text("jQuery~~~");
+            }
+            function changeAttribute() {
+                // change attributes
+                $("img").attr("width", "100");
+            }
+            function changeHTML() {
+                // innerHTML
+                $("p").html("<h1>This is h1 tag</h1>")
+            }
+            function after() {
+                // createElement & appendChild
+                // append > 맨 뒤에 , prepend > 맨 앞에 , before > 특정 요소 앞에 , after > 특정 요소 뒤에
+                let li = document.createElement("li");
+                $(li).text("after");
+                $("#li2").after(li);
+            }
+            function search() {
+                // 부모, 형제, 자식 요소 탐색
+                console.log($("#li2").parent());
+                console.log($("#li2").next());
+                console.log($("ul").children());
+            }
+            function removeElement() {
+                // 특정한 요소 하나 지우기
+                $("#li2").remove();
+            }
+            function emptyElement() {
+                // 선택한 태그 아래에 있는 모든 요소 지우기
+                $("ul").empty()
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="text" id="input1">
+        <button type="button" onclick="setValue();">setValue</button>
+        <button type="button" onclick="getValue();">getValue</button>
+        <br>
+        <span>안녕</span>
+        <img src="">
+        <button type="button" onclick="changeStyle();">changeStyle</button>
+        <button type="button" onclick="changeText();">changeText</button>
+        <button type="button" onclick="changeAttribute();">changeAttribute</button>
+        <p style="background-color: orange">This is p tag</p>
+        <button type="button" onclick="changeHTML();">changeHTML</button>
+        <br>
+        <ul>
+            <li>1</li>
+            <li id="li2">2</li>
+            <li>3</li>
+        </ul>
+        <button type="button" onclick="after();">after</button>
+        <button type="button" onclick="search();">search</button>
+        <button type="button" onclick="removeElement();">removeElement</button>
+        <button type="button" onclick="emptyElement();">emptyElement</button>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <style>
+            .css1 {
+                width: 100px;
+                height: 100px;
+                background-color: pink;
+            }
+            .css2 {
+                width: 200px;
+                height: 200px;
+                background-color: lightblue;
+            }
+        </style>
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- JQuery UI -->
+        <script src="../jquery-ui-1.13.1.custom/jquery-ui.js"></script>
+        <link rel="stylesheet" href="../jquery-ui-1.13.1.custom/jquery-ui.css">
+        <script>
+            // addClass
+            function addClass() {
+                $("div").addClass("css1");
+            }
+            // removeClass
+            function removeClass() {
+                $("div").removeClass("css1");
+            }
+            // hasClass -> true, false
+            function hasClass() {
+                if ($("div").hasClass("css1")) {
+                    alert("css1");
+                } else if (!$("div").hasClass("css1")) {
+                    alert("no css1");
+                }
+            }
+            // switchClass(old, new, time(ms))
+            // 애니메이션처럼 바뀌는 과정을 보여준다.
+            function switchClass() {
+                // css1에서 css2로 1초 동안 바뀐다.
+                // 원하는 동작을 실행 하려면 hasClass로 클래스가 있는지 먼저 확인하기
+                if ($("div").hasClass("css1")) {
+                    $("div").switchClass("css1", "css2", 1000);
+                } else if ($("div").hasClass("css2")) {
+                    $("div").switchClass("css2", "css1", 1000);
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div></div>
+        <button type="button" onclick="addClass();">addClass</button>
+        <button type="button" onclick="removeClass();">removeClass</button>
+        <button type="button" onclick="hasClass();">hasClass</button>
+        <button type="button" onclick="switchClass();">switchClass</button>
+    </body>
+</html>
