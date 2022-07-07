@@ -18,29 +18,13 @@
       let history = document.getElementById("history");
       let equation = document.getElementById("input1").value;
 
-      // if (equation.includes("+")) {
-      //   new_equation = equation.split("+");
-      //   result = Number(new_equation[0]) + Number(new_equation[1]);
-      // }
-      // if (equation.includes("-")) {
-      //   new_equation = equation.split("-");
-      //   result = Number(new_equation[0]) - Number(new_equation[1]);
-      // }
-      // if (equation.includes("*")) {
-      //   new_equation = equation.split("*");
-      //   result = Number(new_equation[0]) * Number(new_equation[1]);
-      // }
-      // if (equation.includes("/")) {
-      //   new_equation = equation.split("/");
-      //   result = Number(new_equation[0]) / Number(new_equation[1]);
-      // }
-
       // % function
       if (equation.includes('%')) {
-        equation = equation.replace(/%/g, '*0.01');
+        let newEquation = equation.replace(/%/g, '*0.01');
+        result = eval(newEquation);
+      } else {
+        result = eval(equation);
       }
-
-      result = eval(equation);
 
       // if the result is a decimal number
       if (String(result).includes('.')) {
@@ -48,6 +32,14 @@
         if (lenOfDecimal > 13) {
           result = result.toFixed(13);
         }
+      }
+
+      // if the result is too long
+      let digits = String(result).length;
+      if (digits > 10) {
+        digits = Number(digits) - 1;
+        result = (result / (10 ** digits)).toFixed(3);
+        result = result + "e" + digits;
       }
 
       input1.value = result;
@@ -141,8 +133,9 @@
         <li>괄호 짝이 안맞아도 확인 불가</li>
         <li>연산자가 여러번 입력되지 않게 하기 (처음 입력값도 연산자가 되면 안됨)</li>
         <li>+/- 버튼 작동 안함</li>
-        <li>%가 입력되었을 때 수식이 *0.01로 치환돼서 %가 아닌 *0.01이 기록됨</li>
-        <li>결과값이 너무 클 때, 지수 사용하기</li>
+        <li><span style="text-decoration: line-through">%가 입력되었을 때 수식이 *0.01로 치환돼서 %가 아닌 *0.01이 기록됨</span><span style="text-decoration: none; color: red;">07/07 해결</span></li>
+        <li><span style="text-decoration: line-through;">결과값이 너무 클 때, 지수 사용하기</span><span style="color: red"> 07/07 해결</span></li>
+          <ul>8888888의 경우 소수점 세자리 수만 남겨 8.889e6으로 표시해주었는데 400000의 경우 4.0e5가 아닌 4.000e5로 표시됨. 또한, 999999의 경우 10.000e10으로 자동 반올림되는 것을 확인할 수 있음</ul>
         <li>eval()함수를 사용하지 않고 구현할 수 있을까 : 처음에 구현한 방식은 숫자 두개와 하나의 연산자만 계산할 수 있었음</li>
       </ul>
     </div>
