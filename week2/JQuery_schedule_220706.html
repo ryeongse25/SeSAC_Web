@@ -46,7 +46,7 @@
             .days td {
                 vertical-align: middle;
             }
-            .dates td:hover {
+            .dates td > p:first-child:hover {
                 font-size: 20px;
                 cursor: pointer;
                 font-weight: bold;
@@ -118,5 +118,16 @@
                 <td></td>
             </tr>
         </table>
+        <script>
+
+            // td태그 안 text를 p태그 안에 집어넣기
+            let tds = document.querySelectorAll(".dates td");
+            console.log(tds.length);
+            for (let i=0; i < tds.length; i++) {
+                console.log($(tds[i]).text());
+                $(tds[i]).html("<p>" + $(tds[i]).text() + "</p>");
+            }
+
+        </script>
     </body>
 </html>
