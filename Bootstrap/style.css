@@ -1,17 +1,119 @@
 iframe {
-    margin-left: 10%;
+    margin-left: 5%;
 }
 
 .content > h1 {
     text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
 }
 
 .content > p {
     text-align: center;
+    font-size: 18px;
 }
 
-.content > button {
+.content button {
     border-radius: 20px;
     background-color: black;
     color: white;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.content button:hover {
+    background-color: rgb(55, 53, 53);
+    color: white;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.content h4 {
+    margin-top: 100px;
+    margin-left: 5%;
+    margin-bottom: 15px;
+}
+
+#second-content img {
+    margin-left: 5%;
+}
+
+#third-content h5 {
+    color: white;
+    position: relative;
+    top: -120px;
+    left: 30px;
+}
+
+#third-content button {
+    background-color: white;
+    color: black;
+    position: relative;
+    top: -100px;
+    left: 30px;
+    width: 100px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border: none;
+}
+
+#third-content button:hover {
+    opacity: 0.7;
+}
+
+/* 모달 동의하기 버튼 */
+.modal-footer button:last-child {
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 12px;
+    padding-left: 23px;
+    padding-right: 23px;
+}
+
+.modal-footer button:last-child:hover {
+    background-color: rgb(55, 53, 53);
+    color: white;
+}
+
+/* 모달 나중에 확인하기 버튼 */
+.modal-footer button:first-child {
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+    border: 1px solid gray;
+    padding: 12px;
+    padding-left: 23px;
+    padding-right: 23px;
+}
+
+.modal-content {
+    padding: 25px 30px 10px 30px;
+    word-break: keep-all;
+}
+
+input[type="checkbox"] {
+    width: 20px; 
+    height: 20px; 
+    cursor: pointer;
+    position: relative;
+    top: 4px;
+    margin-right: 5px;
+}
+
+.dropdown .dropdown-menu {
+    display: none;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
