@@ -1,8 +1,8 @@
 <html>
     <head>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script>
 
+        <script>
             // 작성 버튼
             function report() {
                 // 날짜 input태그에 있는 값을 date 변수에 저장한다.
@@ -21,7 +21,6 @@
                 // 날짜를 클릭하면 날짜 input 태그에 숫자가 들어간다.
                 $("#date").val(num);
             }
-
         </script>
         <style>
             h1 {
@@ -55,7 +54,7 @@
         </style>
     </head>
     <body>
-        날짜: <input type="text" id="date"> <br>
+        날짜: <input type="text" id="date" readonly> <br>
         내용: <input type="text" id="content"> <br>
         <button type="button" onclick="report();">작성</button>
         <h1>2022년 7월</h1>
