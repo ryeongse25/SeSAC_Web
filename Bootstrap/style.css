@@ -1,0 +1,17 @@
+iframe {
+    margin-left: 10%;
+}
+
+.content > h1 {
+    text-align: center;
+}
+
+.content > p {
+    text-align: center;
+}
+
+.content > button {
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+}
