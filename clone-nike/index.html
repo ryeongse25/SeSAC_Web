@@ -1,0 +1,251 @@
+<html>
+    <head>
+        <title>나이키. Just Do It. Nike.com</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap Icon -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+        <!-- SweetAlert -->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <!-- Chart.js -->
+    </head>
+    <body>
+        <div id="login-bar" class="flex-container">
+            <div style="margin-left: 4%;">
+                <button type="button"><img src="../clone-nike/img/jordan.png" width="20"></button>
+                <button type="button"><img src="../clone-nike/img/converse.png" width="40"></button>
+            </div>
+            <div style="margin-right: 3%;">
+                <button type="button">고객센터</button>
+                <span>|</span>
+                <button type="button">멤버 가입</button>
+                <span>|</span>
+                <button type="button">로그인</button>
+            </div>
+        </div>
+        <!-- navigation bar -->
+        <!-- <a class="dropdown-toggle"> : 아래 화살표 -->
+        <nav class="navbar navbar-expand-lg" style="height: 60px;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src="../clone-nike/img/nike.png" width="50"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border: none;">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- New Releases -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">New Releases</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <!-- Men -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Men</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <!-- Women -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Women</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <!-- Kids -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Kids</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <!-- Sale -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Sale</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- <form class="d-flex" role="search"> -->
+                    <i role="button" class="bi bi-search"></i>
+                    <input type="search" style="font-size: 20px;"><span class="text-search">검색</span>
+                    <i role="button" class="bi bi-heart" style="margin-left: 0;"></i>
+                    <i role="button" class="bi bi-bag"></i>
+                    <!-- </form> -->
+                </div>
+            </div>
+        </nav>
+
+        <!-- first content -->
+        <div id="first-content" class="content">
+            <iframe src="https://www.youtube.com/embed/-SBsT032jVI?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h1>RUNNERS HELPING RUNNERS</h1>
+            <p>러닝이 더욱 즐거워지는 이곳. <br>
+            마라톤 선수 안슬기의 팁과 잔나비 최정훈의 응원부터 <br>
+            러닝을 도와줄 새로운 제품, 페스티벌 정보까지 만나보세요.</p>
+            <div class="flex-container">
+                <button type="button" class="btn">자세히 보기</button>
+                <div style="width: 10px;"></div>
+                <button type="button" class="btn">구매하기</button>
+            </div>
+        </div>
+
+        <!-- second content -->
+        <div id="second-content" class="content">
+            <h4>여름을 위한 스타일링 추천</h4>
+            <img src="" width="90%">
+            <h1>썸머 러닝 스타일링</h1>
+            <p>시원하고 편안한 착용감의 러닝 제품과 함께 올여름 쾌적한 러닝을 즐겨보세요.</p>
+            <div class="flex-container">
+                <button type="button" class="btn">구매하기</button>
+                <div style="width: 10px;"></div>
+                <button type="button" class="btn">더 많은 스타일링 보기</button>
+            </div>
+        </div>
+
+        <!-- third content -->
+        <div id="third-content" class="content">
+            <h4>Trending Now</h4>
+            <div class="flex-container">
+                <div class="flex-column" style="width: 44%;">
+                    <img src="../clone-nike/img/trend1.png">
+                    <h5>러닝 의류</h5>
+                    <button type="button" class="btn">구매하기</button>
+                </div>
+                <div style="width: 2%"></div>
+                <div class="flex-column" style="width: 44%">
+                    <img src="../clone-nike/img/trend2.png">
+                    <h5>에어맥스 90 퓨추라</h5>
+                    <button type="button" class="btn">구매하기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- fourth content -->
+        <div id="fourth-content" class="content">
+            <h4>Featured Shoes</h4>
+            <div class="flex-container scroll">
+                <div class="flex-column" style="margin-left: 0;">
+                    <img src="../clone-nike/img/shoes1.png">
+                    <h6>나이키 에어맥스 코코</h6>
+                    <p>여성 샌들</p>
+                    <p>107,100원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes2.png">
+                    <h6>나이키 에어맥스 97</h6>
+                    <p>남성 신발</p>
+                    <p>179,100원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes3.png">
+                    <h6>나이키 에어 리프트 브리드</h6>
+                    <p>여성 신발</p>
+                    <p>116,100원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes4.png">
+                    <h6>나이키 리액트 인피니티 런 플라이니트 3</h6>
+                    <p>남성 로드 러닝화</p>
+                    <p>179,000원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes5.png">
+                    <h6>나이키 줌 메트콘 터보 2</h6>
+                    <p>남성 트레이닝화</p>
+                    <p>179,000원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes6.png">
+                    <h6>르브론 19</h6>
+                    <p>성인공용 농구화</p>
+                    <p>239,000원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes7.png">
+                    <h6>나이키 에어 줌 인피니티 투어 넥스트% 보아</h6>
+                    <p>남성 골프화(와이드)</p>
+                    <p>259,000원</p>
+                </div>
+                <div class="flex-column">
+                    <img src="../clone-nike/img/shoes8.png">
+                    <h6>조던 "Why Not?" Zer0.5 PF</h6>
+                    <p>남성 농구화</p>
+                    <p>159,000원</p>
+                </div>
+                <div class="flex-column" style="margin-right: 0;">
+                    <img src="../clone-nike/img/shoes9.png">
+                    <h6>나이키 머큐리얼 슈퍼플라이 8 엘리트 FG</h6>
+                    <p>성인공용 천연 잔디 클리트 축구화</p>
+                    <p>319,000원</p>
+                </div>
+            </div>
+        </div>
+
+        <footer></footer>
+
+        <!-- Carousel -->
+        <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+              </div>
+            </div>
+        </div> -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="width: 480px">
+              <div class="modal-content">
+                <div class="modal-header border-0">
+                  <p style="font-size: 25px; font-weight: 500;">고객님의 나이키 멤버 정보가 <br> 이전됩니다.</p>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="font-weight: 350;">
+                    나이키 멤버인 경우, 로그인 시 고객님의 멤버 정보 및 주문 정보가 미국 Nike, Inc.로 이전하는 것에 대한 제 3자 제공 동의 수집이 진행될 예정입니다. 해당 업데이트는 한국의 나이키 멤버 정보를 나이키 글로벌 시스템에 통합하여 향후 더 나은 서비스를 제공하기 위함입니다. <br><br> <span style="font-weight: 500;">국외 이전 및 제 3자 제공 동의 수집 기한은 2022년 8월 31일까지 입니다. 국외 이전 및 제 3자 제공에 동의하지 않는 경우, 고객님의 기존 나이키 멤버 정보가 삭제될 예정입니다.</span> <br><br> 아직 나이키 멤버 계정이 없는 경우 새로 생성하시거나 비회원으로도 여전히 나이키 서비스를 이용하실 수 있습니다. <br><br> 국외 이전 및 제 3자 제공에 대해 더 알고 싶으신가요? <br> 데이터 및 개인 정보 관련 <span style="text-decoration:underline; font-weight: bold;">FAQ</span>를 확인해 보세요. <br><br>
+                    <input type="checkbox"> 오늘 다시 표시 안 함
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn" data-bs-dismiss="modal">나중에 확인하기</button>
+                    <button type="button" class="btn">동의하기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+    <script>
+        // swal("제목", "내용", "아이콘") > 아이콘: "warning", "error", "success", "info"
+        // 페이지가 로드되면 모달 뜨게 하기
+        $(document).ready(function() {
+	        $("#exampleModal").modal("show");
+        });
+    </script>
+</html>
