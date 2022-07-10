@@ -1,7 +1,7 @@
 iframe {
     margin-left: 5%;
     width: 90%;
-    min-height: 500;
+    min-height: 400;
 }
 
 /* display: flex */
@@ -221,11 +221,6 @@ nav {
     font-weight: 300;
 }
 
-/* Dropdown menu */
-/* #newReleases {
-    display: none;
-} */
-
 .menu {
     color: gray;
     font-size: 13.5px;
@@ -240,11 +235,13 @@ nav {
     color: black;
     font-size: 15px;
     font-weight: 450;
+    padding-bottom: 10px;
+    padding-top: 30px;
 }
 
 .menu > div {
-    margin-left: 2%;
-    margin-right: 2%; 
+    margin-left: 2.5%;
+    margin-right: 2.5%; 
 }
 
 .display-none {
