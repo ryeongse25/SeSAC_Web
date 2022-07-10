@@ -169,12 +169,11 @@ input[type="checkbox"] {
 }
 
 /* navigation bar */
-.dropdown .dropdown-menu {
-    display: none;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
+nav {
+    height: 60px; 
+    margin-left: 3%;
+    margin-right: 3%;
+    white-space: nowrap;
 }
 
 .navbar-brand:hover {
@@ -187,6 +186,7 @@ input[type="search"] {
     border: none;
     background-color: rgb(245, 245, 245);
     padding: 7 10 7 10;
+    font-size: 20px;
 }
 
 i {
@@ -209,11 +209,6 @@ i {
     left: 45px;
 }
 
-nav {
-    margin-left: 3%; 
-    margin-right: 3%;
-}
-
 .text-search {
     color: gray;
     position: relative;
@@ -221,6 +216,7 @@ nav {
     font-weight: 300;
 }
 
+/* Dropdown menu */
 .menu {
     color: gray;
     font-size: 13.5px;

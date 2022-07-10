@@ -40,75 +40,45 @@
         </div>
 
         <!-- Navigation bar -->
-        <nav class="navbar navbar-expand-lg" style="height: 60px;">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
+                <!-- Home -->
                 <a class="navbar-brand" href="index.html"><img src="../clone-nike/img/nike.png" width="50"></a>
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border: none;">
-                <span class="navbar-toggler-icon"></span> -->
-                </button>
+                <!-- 오른쪽 위 모서리 네비게이션바 생략 아이콘 -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="border: none;">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
                     <div class="offcanvas-body">
-                      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                              <hr class="dropdown-divider">
+                        <ul class="navbar-nav">
+                            <!-- New Releases -->
+                            <li class="nav-item">
+                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#newReleases');" onmouseleave="hideDropdown('#newReleases');">New Releases</a>
                             </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                      <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                      </form>
+                            <!-- Men -->
+                            <li class="nav-item">
+                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#men');" onmouseleave="hideDropdown('#men');">Men</a>
+                            </li>
+                            <!-- Women -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#women');" onmouseleave="hideDropdown('#women');">Women</a>
+                            </li>
+                            <!-- Kids -->
+                            <li class="nav-item">
+                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#kids');" onmouseleave="hideDropdown('#kids');">Kids</a>
+                            </li>
+                            <!-- Sale -->
+                            <li class="nav-item">
+                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#sale');" onmouseleave="hideDropdown('#sale');">Sale</a>
+                            </li>
+                        </ul>
+                        <div style="margin-left: auto;">
+                            <i role="button" class="bi bi-search"></i>
+                            <input type="search"><span class="text-search">검색</span>
+                            <i role="button" class="bi bi-heart" style="margin-left: 0;"></i>
+                            <i role="button" class="bi bi-bag"></i>
+                        </div>
                     </div>
-                  </div>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <!-- New Releases -->
-                        <li class="nav-item">
-                            <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#newReleases');" onmouseleave="hideDropdown('#newReleases');">New Releases</a>
-                        </li>
-                        <!-- Men -->
-                        <li class="nav-item">
-                            <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#men');" onmouseleave="hideDropdown('#men');">Men</a>
-                        </li>
-                        <!-- Women -->
-                        <li class="nav-item">
-                            <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#women');" onmouseleave="hideDropdown('#women');">Women</a>
-                        </li>
-                        <!-- Kids -->
-                        <li class="nav-item">
-                            <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#kids');" onmouseleave="hideDropdown('#kids');">Kids</a>
-                        </li>
-                        <!-- Sale -->
-                        <li class="nav-item">
-                            <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#sale');" onmouseleave="hideDropdown('#sale');">Sale</a>
-                        </li>
-                    </ul>
-                    <i role="button" class="bi bi-search"></i>
-                    <input type="search" style="font-size: 20px;"><span class="text-search">검색</span>
-                    <i role="button" class="bi bi-heart" style="margin-left: 0;"></i>
-                    <i role="button" class="bi bi-bag"></i>
                 </div>
             </div>
         </nav>
