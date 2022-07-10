@@ -221,6 +221,36 @@ nav {
     font-weight: 300;
 }
 
+/* Dropdown menu */
+/* #newReleases {
+    display: none;
+} */
+
+.menu {
+    color: gray;
+    font-size: 13.5px;
+    padding-bottom: 30px;
+}
+
+.menu p {
+    margin-bottom: 8px;
+}
+
+.menu-title {
+    color: black;
+    font-size: 15px;
+    font-weight: 450;
+}
+
+.menu > div {
+    margin-left: 2%;
+    margin-right: 2%; 
+}
+
+.display-none {
+    display: none;
+}
+
 /* login bar */
 #login-bar {
     background-color: rgb(245, 245, 245);

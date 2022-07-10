@@ -12,6 +12,14 @@
         <!-- SweetAlert -->
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <!-- Chart.js -->
+        <script>
+            function showDropdown() {
+                $("#newReleases").removeClass("display-none");
+            }
+            function hideDropdown() {
+                $("#newReleases").addClass("display-none");
+            }
+        </script>
     </head>
     <body>
         <div id="login-bar" class="flex-container">
@@ -40,53 +48,23 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <!-- New Releases -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">New Releases</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                            <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown();" onmouseleave="hideDropdown();">New Releases</a>
                         </li>
                         <!-- Men -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Men</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                            <a class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Men</a>
                         </li>
                         <!-- Women -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Women</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                            <a class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Women</a>
                         </li>
                         <!-- Kids -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Kids</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                            <a class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Kids</a>
                         </li>
                         <!-- Sale -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Sale</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                            <a class="nav-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; font-weight: 450;">Sale</a>
                         </li>
                     </ul>
                     <!-- <form class="d-flex" role="search"> -->
@@ -98,6 +76,85 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Dropdown menu -->
+
+        <!-- New Releases -->
+        <div id="newReleases" class="flex-container menu display-none">
+            <div>
+                <p class="menu-title">New & Featured</p>
+                <p>신상품 전체보기</p>
+                <p>SNKRS</p>
+                <p>에어 포스 1</p>
+                <p>ACG</p>
+                <p>NikeLab</p>
+                <p>여름을 위한 스타일링 추천</p>
+                <p>스타일링 리뷰 챌린지</p>
+                <p>지속 가능 컬렉션</p>
+                <p>썸머 컬렉션</p>
+                <p>품절 임박</p>
+            </div>
+            <div>
+                <p class="menu-title">New For Men</p>
+                <p>신발</p>
+                <p>의류</p>
+                <p>용품</p>
+                <p>전체보기</p>
+            </div>
+            <div>
+                <p class="menu-title">New For Women</p>
+                <p>신발</p>
+                <p>의류</p>
+                <p>용품</p>
+                <p>전체보기</p>
+            </div>
+            <div>
+                <p class="menu-title">New For Kids</p>
+                <p>신발</p>
+                <p>의류</p>
+                <p>용품</p>
+                <p>전체보기</p>
+            </div>
+        </div>
+
+        <!-- Men  -->
+        <!-- <div id="men" class="flex-container menu">
+            <div>
+                <p class="menu-title">New & Featured</p>
+                <p>신상품</p>
+                <p>SNKRS</p>
+                <p>MUST HAVES</p>
+                <p>MEMBER SHOP</p>
+                <p>젠더리스 컬렉션</p>
+                <p>애슬릿 리뷰</p>
+                <p>여름을 위한 스타일링 추천</p>
+                <p>스타일링 리뷰 챌린지</p>
+                <p>지속 가능 컬렉션</p>
+                <p>썸머 컬렉션</p>
+                <p>품절 임박</p>
+            </div>
+            <div>
+                <p class="menu-title">신발</p>
+                <p>신발 전체</p>
+                <p>라이프스타일</p>
+                <p>러닝</p>
+                <p>트레이닝 & 짐</p>
+            </div>
+            <div>
+                <p class="menu-title">New For Women</p>
+                <p>신발</p>
+                <p>의류</p>
+                <p>용품</p>
+                <p>전체보기</p>
+            </div>
+            <div>
+                <p class="menu-title">New For Kids</p>
+                <p>신발</p>
+                <p>의류</p>
+                <p>용품</p>
+                <p>전체보기</p>
+            </div>
+        </div> -->
 
         <!-- first content -->
         <div id="first-content" class="content">
