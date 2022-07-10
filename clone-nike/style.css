@@ -266,6 +266,14 @@ i {
     font-size: 12px;
 }
 
+/* Carousel */
+#carouselExampleDark {
+    background-color: rgb(245, 245, 245);
+    text-align: center;
+    height: 60px;
+    font-size: 14px;
+}
+
 /* footer */
 
 footer {
