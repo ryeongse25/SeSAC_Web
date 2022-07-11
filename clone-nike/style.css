@@ -1,7 +1,13 @@
 iframe {
     margin-left: 5%;
     width: 90%;
-    min-height: 400;
+    height: auto;
+    /* min-height: 400; */
+}
+
+video {
+    width: 90%;
+    margin-left: 5%;
 }
 
 /* display: flex */
@@ -89,6 +95,9 @@ iframe {
     height: 5px;
     width: 10px;
 }
+.scroll::-webkit-scrollbar:hover {
+    cursor: pointer;
+}
 
 .scroll::-webkit-scrollbar-thumb {
     background-color: lightgray;
@@ -128,6 +137,22 @@ iframe {
 }
 
 /* Modal */
+.modal-content {
+    position: absolute;
+    top: 100px;
+}
+
+.modal-content .close-btn {
+    position: relative;
+    bottom: 50px;
+    left: 25px;
+    font-size: 30px;
+}
+
+.modal-content .close-btn:hover {
+    color: gray;
+}
+
 .modal-footer button:last-child {
     background-color: black;
     color: white;
@@ -176,6 +201,11 @@ nav {
     white-space: nowrap;
 }
 
+.nav-link {
+    height: 60px;
+    line-height: 45px;
+}
+
 .navbar-brand:hover {
     opacity: 0.6;
 }
@@ -195,6 +225,23 @@ i {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.ct_nav {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 2;
+  }
+
+  .ct_nav > ul {
+    display: inline-block;
+  }
+
+  .ct_nav > ul > li {
+    display: inline-block;
+  }
 
 /* 아이콘에 커서 올렸을 때 바탕에 회색 원 생기게 하기 */
 /* i:hover {
@@ -227,6 +274,11 @@ i {
     margin-bottom: 8px;
 }
 
+.menu p:hover {
+    color: black;
+    cursor: pointer;
+}
+
 .menu-title {
     color: black;
     font-size: 15px;
@@ -245,6 +297,12 @@ i {
 }
 
 /* login bar */
+@media (max-width: 991px) {
+    #login-bar {
+        display: none;
+    }
+}
+
 #login-bar {
     background-color: rgb(245, 245, 245);
     justify-content: space-between;
@@ -272,6 +330,20 @@ i {
     text-align: center;
     height: 60px;
     font-size: 14px;
+}
+
+#carouselExampleDark p {
+    height: 50px;
+    margin-bottom: 0;
+}
+
+#carouselExampleDark .close-btn {
+    position: relative;
+    bottom: 60px;
+    left: 49%;
+    font-size: 28px;
+    font-weight: 100;
+    z-index: 100;
 }
 
 /* footer */
@@ -329,4 +401,10 @@ footer p {
 
 .social i:hover {
     color: white;
+}
+
+/* close-btn */
+.close-btn {
+    background-color: transparent;
+    border: none;
 }

@@ -18,6 +18,11 @@
             function hideDropdown(id) {
                 $(id).addClass("display-none");
             }
+
+            // 
+            function closeButton(id) {
+                $(id).addClass("display-none");
+            }
         </script>
 
     </head>
@@ -43,36 +48,38 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <!-- Home -->
-                <a class="navbar-brand" href="index.html"><img src="../clone-nike/img/nike.png" width="50"></a>
+                <a style="z-index: 3;" class="navbar-brand" href="index.html"><img src="../clone-nike/img/nike.png" width="50"></a>
                 <!-- 오른쪽 위 모서리 네비게이션바 생략 아이콘 -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="border: none;">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav">
-                            <!-- New Releases -->
-                            <li class="nav-item">
-                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#newReleases');" onmouseleave="hideDropdown('#newReleases');">New Releases</a>
-                            </li>
-                            <!-- Men -->
-                            <li class="nav-item">
-                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#men');" onmouseleave="hideDropdown('#men');">Men</a>
-                            </li>
-                            <!-- Women -->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#women');" onmouseleave="hideDropdown('#women');">Women</a>
-                            </li>
-                            <!-- Kids -->
-                            <li class="nav-item">
-                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#kids');" onmouseleave="hideDropdown('#kids');">Kids</a>
-                            </li>
-                            <!-- Sale -->
-                            <li class="nav-item">
-                                <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#sale');" onmouseleave="hideDropdown('#sale');">Sale</a>
-                            </li>
-                        </ul>
-                        <div style="margin-left: auto;">
+                        <div class="ct_nav">
+                            <ul class="navbar-nav">
+                                <!-- New Releases -->
+                                <li class="nav-item">
+                                    <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#newReleases');" onmouseleave="hideDropdown('#newReleases');">New Releases</a>
+                                </li>
+                                <!-- Men -->
+                                <li class="nav-item">
+                                    <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#men');" onmouseleave="hideDropdown('#men');">Men</a>
+                                </li>
+                                <!-- Women -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#women');" onmouseleave="hideDropdown('#women');">Women</a>
+                                </li>
+                                <!-- Kids -->
+                                <li class="nav-item">
+                                    <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#kids');" onmouseleave="hideDropdown('#kids');">Kids</a>
+                                </li>
+                                <!-- Sale -->
+                                <li class="nav-item">
+                                    <a class="nav-link" role="button" style="color: black; font-weight: 450;" onmouseover="showDropdown('#sale');" onmouseleave="hideDropdown('#sale');">Sale</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="display: absolute; z-index: 3px; margin-left: auto; padding-top: 10px;">
                             <i role="button" class="bi bi-search"></i>
                             <input type="search"><span class="text-search">검색</span>
                             <i role="button" class="bi bi-heart" style="margin-left: 0;"></i>
@@ -339,15 +346,17 @@
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
-                    <div style="padding-top: 10px;">
-                        <p style="margin-bottom: 0; font-weight: bold;">카카오페이 이벤트 안내</p>
-                        <p role="button" style="margin-bottom: 0; text-decoration: underline; font-size: 12px;">자세히 보기</p>
-                    </div>
+                    <p style="font-weight: bold; padding-top: 12px;">카카오페이 이벤트 안내 <br>
+                        <span role="button" style="text-decoration: underline; font-size: 12px;">자세히 보기</span>
+                    </p>
                 </div>
                 <div class="carousel-item" data-bs-interval="2000">
-                    <p role="button" style="line-height: 60px;">고객님의 나이키 멤버 정보가 이전됩니다. <span style="font-weight: bold; text-decoration: underline; margin-left: 8px;">동의하기</span></p>
+                    <p role="button" style="padding-top: 20px;">고객님의 나이키 멤버 정보가 이전됩니다. 
+                        <span style="font-weight: bold; text-decoration: underline; margin-left: 8px;">동의하기</span>
+                    </p>
                 </div>
             </div>
+            <button type="button" class="close-btn" onclick="closeButton('#carouselExampleDark');">×</button>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
@@ -375,7 +384,9 @@
         <!-- second content -->
         <div id="second-content" class="content">
             <h4>여름을 위한 스타일링 추천</h4>
-            <img src="" width="90%">
+            <video autoplay loop muted>
+                <source src="../clone-nike/img/main.mp4" type="video/mp4">
+            </video>
             <h1>썸머 러닝 스타일링</h1>
             <p>시원하고 편안한 착용감의 러닝 제품과 함께 올여름 쾌적한 러닝을 즐겨보세요.</p>
             <div class="flex-container">
@@ -525,7 +536,7 @@
               <div class="modal-content">
                 <div class="modal-header border-0">
                   <p style="font-size: 25px; font-weight: 500;">고객님의 나이키 멤버 정보가 <br> 이전됩니다.</p>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
                 </div>
                 <div class="modal-body" style="font-weight: 350;">
                     나이키 멤버인 경우, 로그인 시 고객님의 멤버 정보 및 주문 정보가 미국 Nike, Inc.로 이전하는 것에 대한 제 3자 제공 동의 수집이 진행될 예정입니다. 해당 업데이트는 한국의 나이키 멤버 정보를 나이키 글로벌 시스템에 통합하여 향후 더 나은 서비스를 제공하기 위함입니다. <br><br> <span style="font-weight: 500;">국외 이전 및 제 3자 제공 동의 수집 기한은 2022년 8월 31일까지 입니다. 국외 이전 및 제 3자 제공에 동의하지 않는 경우, 고객님의 기존 나이키 멤버 정보가 삭제될 예정입니다.</span> <br><br> 아직 나이키 멤버 계정이 없는 경우 새로 생성하시거나 비회원으로도 여전히 나이키 서비스를 이용하실 수 있습니다. <br><br> 국외 이전 및 제 3자 제공에 대해 더 알고 싶으신가요? <br> 데이터 및 개인 정보 관련 <span style="text-decoration:underline; font-weight: bold;">FAQ</span>를 확인해 보세요. <br><br>
@@ -542,23 +553,44 @@
     </body>
     <script>
         // 페이지가 로드되면 모달 뜨게 하기
-        // $(document).ready(function() {
-	    //     $("#exampleModal").modal("show");
-        // });
+        $(document).ready(function() {
+	        $("#exampleModal").modal("show");
+        });
 
         // underline when mouse is over
         let target;
 
         $(".nav-link").on("mouseover", function( obj ){
             target = obj.currentTarget; // 현재 선택한 태그 target 변수에 담기 지금, td가 console.log로 나온다.
-            console.log( target );
             $(target).css("border-bottom", "2px solid black");
         });
 
         $(".nav-link").on("mouseleave", function( obj ){
             target = obj.currentTarget;
-            console.log( target );
             $(target).css("border-bottom", "none");
         });
+
+        $(".menu").on("mouseover", function( obj ){
+            target = obj.currentTarget;
+            $(target).removeClass("display-none");
+        });
+
+        $(".menu").on("mouseleave", function( obj ){
+            target = obj.currentTarget;
+            $(target).addClass("display-none");
+        });
+
+        // 화면 크기에 따라 동영상 세로 길이 설정해주기
+        window.onload = function() {
+            let video_width = $("iframe").css("width");
+            video_width = Number(video_width.replace("px", ""));
+            $("iframe").css("height", video_width*(2/5)+"px");
+        }
+
+        window.onresize = function() {
+            let video_width = $("iframe").css("width");
+            video_width = Number(video_width.replace("px", ""));
+            $("iframe").css("height", video_width*(2/5)+"px");
+        }
     </script>
 </html>
