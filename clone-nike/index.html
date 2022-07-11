@@ -4,11 +4,17 @@
         <link rel="stylesheet" href="style.css">
         <!-- JQuery -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Bootstrap Icon -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+ 
+        <!-- slick -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 
         <script>
             // 네비게이션바 메뉴에 마우스 올리면 하위 메뉴 보여주기
@@ -592,5 +598,11 @@
             video_width = Number(video_width.replace("px", ""));
             $("iframe").css("height", video_width*(2/5)+"px");
         }
+
+        $('.post-wrapper').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1
+        });
+
     </script>
 </html>

@@ -83,6 +83,7 @@ video {
 }
 
 /* fourth-content */
+
 #fourth-content .flex-container{
     width: 95%;
     margin-left: 2.5%;
@@ -134,6 +135,22 @@ video {
 
 #fourth-content p:last-child {
     margin-bottom: 30px;
+}
+
+.post-slider{
+    border:1px solid red;
+}
+.post-slider .post-wrapper{
+    width:84%;
+    height:350px;
+    margin:0px auto;
+    border:1px dashed red;
+}
+.post-slider .post-wrapper .post{
+    width:300px;
+    height:350px;
+    display:inline-block;
+    background:gray;
 }
 
 /* Modal */
