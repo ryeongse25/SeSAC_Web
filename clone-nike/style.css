@@ -268,16 +268,15 @@ i {
     height: 30px;
 } */
 
-.bi-search {
+/* .bi-search {
     position: relative;
     left: 45px;
-}
+} */
 
-.text-search {
-    color: gray;
-    position: relative;
-    right: 130px;
-    font-weight: 300;
+#search-box {
+    background-color: rgb(245, 245, 245);
+    border-radius: 20px;
+    width: 60px;
 }
 
 /* Dropdown menu */
