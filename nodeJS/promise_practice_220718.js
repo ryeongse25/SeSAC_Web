@@ -2,11 +2,10 @@ function call(name) {
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
             console.log(name);
-            resolve(name);
+            reject(name);
         }, 1000);
     });
 }
-
 function back() {
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
@@ -35,4 +34,7 @@ call('kim')
     })
     .then(function(message) {
         console.log("여기는 " + message);
+    })
+    .catch(err =>{
+        console.log( err );
     })
