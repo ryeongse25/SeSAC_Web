@@ -5,12 +5,13 @@ const func1 = new Promise((resolve, reject) => {
 })
 
 // 성공했을 때 return값
-func1.then(value => {
-    console.log(value + "1");
-// '성공1'
-}).then(result => {
-    console.log(result);
-// '실패
-}).catch(err => {
-    console.log(err);
-});
+func1
+    .then(value => {
+        console.log(value + "1");
+    // '성공1'
+    }).then(result => {
+        console.log(result);
+    // '실패
+    }).catch(err => {
+        console.log(err);
+    });
