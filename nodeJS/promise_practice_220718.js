@@ -2,7 +2,7 @@ function call(name) {
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
             console.log(name);
-            reject(name);
+            resolve(name);
         }, 1000);
     });
 }
