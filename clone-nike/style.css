@@ -229,6 +229,10 @@ input[type="search"]:focus {
     margin: 10 10 0 10;
 }
 
+#search-box:hover {
+    background-color: rgb(220, 220, 220);
+}
+
 .ct_nav {
     text-align: center;
     position: absolute;
