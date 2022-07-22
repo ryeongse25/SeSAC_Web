@@ -4,10 +4,18 @@ const http = require("http");
 const fs = require('fs');
 
 const server = http.createServer(function(req, res) {
-    const data = fs.readFile('./test.html', (err, data) => {
-        if (err) throw err;
-        res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
-        res.end(data);
+    fs.readFile('./test.html', function(err, data){
+        // promise에서의 catch
+        if (err) {
+            console.error(err);
+            res.writeHead(404);
+            res.end(err.message);
+        }
+        // promise에서의 try
+        else {
+            res.writeHead(200);
+            res.end(data);
+        }
     });
 })
 
