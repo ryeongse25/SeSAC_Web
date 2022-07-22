@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>EJS</title>
+    </head>
+    <body>
+        <% for (let i = 0; i < list.length; i++) { %>
+            <h1><%=list[i]%></h1>
+            <!-- <% if (i == 3) { %>
+                <h3>hi</h3>
+            <% } else { %>
+                <h1>hi</h1>
+            <% } %> -->
+        <% } %>
+
+        <!-- 다른 view 파일 가져오기 -->
+        <%- include('test2.ejs') %>
+    </body>
+</html>
