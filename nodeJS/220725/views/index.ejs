@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Index.ejs</title>
+    </head>
+    
+    <body>
+        <!-- action : 상대경로 /receive로 정보를 보낸다 -->
+        <!-- method="POST" 경우 app.post로 받는다 -->
+        <form action="/receive" method="GET">
+            <fieldset>
+                <!-- 필드의 title -->
+                <legend>이름/성별</legend>
+                <!-- required : 필수 입력 -->
+                <!-- name : 백에서 뜨는 이름 -->
+                <!-- label 연결 짓기 : 글자 선택해도 선택할 수 있게 -->
+                <label>
+                    이름 :
+                    <input type="text" name="name" placeholder="이름" required>
+                </label>
+                <!-- radio와 checkbox의 name은 같아야 한다. -->
+                <br>
+                <input type="radio" name="gender" id="gender_1" value="male">
+                <label for="gender_1">남</label>
+                <input type="radio" name="gender" value="female">여 <br>
+            </fieldset>
+
+            <fieldset>
+                <input type="checkbox" name="sport" value="football">축구
+                <input type="checkbox" name="sport" value="baseball">야구
+                <input type="checkbox" name="sport" value="basketball">농구 <br>
+                <!-- <input type="date">
+                <input type="color">
+                <input type="number">
+                <input type="time">
+                <input type="reset" value="Reset"> -->
+
+                <input type="password"> <br>
+
+                <select name="year">
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                </select>
+            </fieldset>
+
+            <button>전송</button>
+        </form>    
+    </body>
+</html>

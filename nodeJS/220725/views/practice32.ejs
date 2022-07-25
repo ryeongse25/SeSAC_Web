@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <title>practice32</title>
+        <style>
+            body {
+                margin: 0;
+                background-color: rgb(250, 240, 255);
+            }
+            .form-container {
+                display: flex;
+                position: absolute;
+                top: 10%;
+                z-index: 1;
+                width: 80%;
+                height: 80%;
+                margin-left: 10%;
+                border-radius: 30px;
+                background-color: white;
+            }
+            .side {
+                width: 45%; 
+                height: 100%; 
+                background: linear-gradient(#e66465, #9198e5); 
+                border-bottom-left-radius: 30px;
+                border-top-left-radius: 30px;
+            }
+            form {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            h1 {
+                color: #e66465;
+                margin: 100 0 50 0;
+                background: linear-gradient(to right, #e66465, #9198e5);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .text {
+                margin: 0 0 20 10;
+                border: 1px solid lightgray;
+                border-radius: 20px;
+                height: 30;
+                width: 200;
+                padding-left: 15px;
+            }
+            .text:focus {
+                outline-color: #e66465;
+            }
+            button {
+                border: none;
+                background-color: #a2a9f0;
+                color: white;
+                height: 30;
+                width: 80;
+                border-radius: 15px;
+                margin: 80 0 0 100%;
+            }
+            button:hover {
+                opacity: 0.7;
+            }
+            /* show password switch */
+            input[type=checkbox] {
+                visibility: hidden;
+            }
+            .showPassword {
+                margin-left: 20px;
+                width: 30px;
+                height: 15px;
+                background-color: #e67f7f;
+                border-radius: 10px;
+                position: relative;
+            }
+            .showPassword label {
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                background-color: #a2a9f0;
+                border-radius: 50%;
+                top: -0.5;
+                left: -1;
+            }
+            .showPassword span {
+                position: absolute;
+                top: -1;
+                color: gray;
+            }
+            span {
+                color: gray;
+                margin-left: 20;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div style="opacity: 0.7;">
+            <div style="width: 40%; height: 100%; background: linear-gradient(#e66465, #9198e5);"></div>
+        </div>
+        <div class="form-container">
+            <div class="side"></div>
+            <form action="/signup" method="POST">
+                <h1>Create Account</h1>
+                <input type="text" name="name" class="text" placeholder="이름" required> <br>
+                <input type="text" name="id" class="text" placeholder="ID" required> <br>
+                <input type="password" name="password" class="text" placeholder="PASSWORD" required> <br>
+                <div class="showPassword">
+                    <input type="checkbox" id="checkbox_1">
+                    <label for="checkbox_1"></label>
+                    <span>show&nbsp;password</span>
+                </div> <br>
+                <input type="email" name="mail" class="text" placeholder="E-mail"> <br>
+                <span>Birthday</span> <br>
+                <input type="date" class="text" style="width: 200; padding-right: 15px; margin-top: 10px; color: gray;">
+                <button>회원가입</button>
+            </form>
+        </div>
+    </body>
+</html>
