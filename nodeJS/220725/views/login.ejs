@@ -1,12 +1,33 @@
 <html>
     <head>
         <title>login</title>
+        <style>
+            body {
+                margin: 0;
+                background: linear-gradient(#ffd1d1, #d7daff);
+            }
+            form {
+                margin: 10% auto;
+                width: 500; height: 60%;
+                background: linear-gradient(#e66465, #9198e5);
+                border-radius: 40px;
+                padding: 80 0 0 0;
+            }
+            img {
+                display: block;
+                margin: 0 auto;
+                
+            }
+        </style>
     </head>
     <body>
-        <form action="/login", method="POST">
-            ID <input type="text" name="id"> <br>
-            PASSWORD <input type="text" name="password"> <br>
-            <button>로그인</button>
-        </form>
+        <div>
+            <form action="/login_result", method="POST">
+                <img src="/whale.png" width="150">
+                <input type="text" name="id" placeholder="ID"> <br>
+                <input type="password" name="password" placeholder="PASSWORD"> <br>
+                <button>로그인</button>
+            </form>
+        </div>
     </body>
 </html>

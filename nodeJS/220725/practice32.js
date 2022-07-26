@@ -25,7 +25,7 @@ app.post("/signup", function(req, res) {
     fs.writeFile('info.txt', information);
 });
 
-app.post("/login", function(req, res) {
+app.post("/login_result", function(req, res) {
     fs.readFile("info.txt")
     .then(function(data) {
         data = data.toString().split("//");
@@ -33,6 +33,7 @@ app.post("/login", function(req, res) {
         const {id, password} = req.body;
         if (data[0] == id && data[2] == password) {
             console.log("로그인 성공");
+            res.render("login_result");
         }
         else {
             console.log("아이디 혹은 비밀번호가 틀렸습니다.");
