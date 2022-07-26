@@ -32,11 +32,12 @@ app.post("/login_result", function(req, res) {
         // console.log(data);
         const {id, password} = req.body;
         if (data[0] == id && data[2] == password) {
-            console.log("로그인 성공");
-            res.render("login_result");
+            // console.log("로그인 성공");
+            res.render("login_result", {result: 1});
         }
         else {
-            console.log("아이디 혹은 비밀번호가 틀렸습니다.");
+            // console.log("아이디 혹은 비밀번호가 틀렸습니다.");
+            res.render("login_result", {result: 0});
         }
     })
 });

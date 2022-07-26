@@ -1,9 +1,26 @@
 <html>
     <head>
         <title>login result</title>
+        <style>
+            body {
+                margin: 0;
+            }
+            div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(#e66465, #9198e5);
+                color: white;
+                height: 100%;
+            }
+        </style>
     </head>
 
     <body>
-        로그인 성공
+        <% if (result == 1) { %>
+        <div><h1>로그인 성공</h1></div>
+        <% } else  { %>
+        <div><h1>아이디 혹은 비밀번호가 틀렸습니다.</h1></div>
+        <% } %>
     </body>
 </html>
