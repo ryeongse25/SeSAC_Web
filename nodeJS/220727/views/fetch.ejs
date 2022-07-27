@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>practice33 - fetch</title>
+
+        <script>
+            function sendGet() {
+                let form = document.getElementById("form_info");
+
+                let result = form.checkValidity();
+
+                if ( !result ) {
+                    form.reportValidity();
+                    return false;
+                }
+
+                fetch(`http://localhost:8080/receive?name=${form.name.value}&gender=${form.gender.value}&year=${form.year.value}&month=${form.month.value}&day=${form.day.value}`, {
+                    method: "get",
+                    headers: {
+                        "Content-Type" : "application/json"
+                    },
+                }).then((response) => {
+                    console.log(response);
+                    return response.json();
+                }).then((responseData) => {
+                    alert(responseData.name + "님 회원가입 되었습니다.");
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <form id="form_info">
+            <p>폼 전송 - 실습</p>
+
+            이름 <input type="text" name="name" required> <br>
+            성별
+            <input type="radio" name="gender" value="남자" required>남자
+            <input type="radio" name="gender" value="여자">여자 <br>
+            생년월일
+            <select name="year">
+                <% for(let i = 1950; i < 2023; i++) { %>
+                    <option value="<%=i%>"><%=i%></option>
+                <% } %> 
+            </select> 년
+            <select name="month">
+                <% for(let i = 1; i < 13; i++) { %>
+                    <option value="<%=i%>"><%=i%></option>
+                <% } %> 
+            </select> 월
+            <select name="day">
+                <% for(let i = 1; i < 32; i++) { %>
+                    <option value="<%=i%>"><%=i%></option>
+                <% } %> 
+            </select> 일
+            <!-- <br>
+            관심사
+            <input type="checkbox" name="interest" value="여행">여행
+            <input type="checkbox" name="interest" value="패션">패션
+            <input type="checkbox" name="interest" value="음식">음식 -->
+            <br>
+            <button type="button" onclick="sendGet();">회원가입</button>
+        </form>
+    </body>
+</html>

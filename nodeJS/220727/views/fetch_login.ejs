@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>fetch - login</title>
+        <style>
+            #result {
+                color: red;
+            }
+        </style>
+
+        <script>
+            function sendPost() {
+                let form = document.getElementById("form_info");
+                let result = form.checkValidity();
+
+                if ( !result ) {
+                    form.reportValidity();
+                    return false;
+                }
+
+                fetch("http://localhost:8080/receive", {
+                    method: "post",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name: form.name.value,
+                        password: form.password.value
+                    }),
+                }).then((response) => {
+                    console.log(response);
+                    return response.json();
+                }).then((responseData) => {
+                    let p_tag = document.querySelector("#result");
+                    if (responseData) {
+                        p_tag.innerText = "로그인 성공";
+                    } else {
+                        p_tag.innerText = "아이디 또는 비밀번호를 잘못 입력하셨습니다.";
+                    }
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <form id="form_info">
+            <p>로그인 - 실습</p>
+
+            <input type="text" name="name" placeholder="ID" required> <br>
+            <input type="password" name="password" placeholder="PASSWORD" required> <br>
+            <p id="result" style="height: 20;"></p>
+            <button type="button" onclick="sendPost();">로그인</button>
+        </form>
+    </body>
+</html>
