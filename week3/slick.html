@@ -2,73 +2,31 @@
     <head>
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
         <!-- slick -->
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        <style>
-            /* 전체 슬라이더 */
-            .for_slick_slider{
-                display: flex;
-                width:1557px;
-                height : 400px;
-                margin-left: 325px;
-                margin-top: 100px;
-                /* border: 1px solid firebrick; */
-            }
-
-            /* 각각의 요소 */
-            .for_slick_slider .items{
-                height: 379px;
-                margin-top: 50px;
-                margin: 35px;    
-            }
-
-            /* 각각의 이미지 */
-            .for_slick_slider .items .img{
-                border: 1px solid firebrick;
-            }
-
-            /* 가운데 이미지 */
-            .for_slick_slider .slick-center .img{
-                transform : scale(1.2);
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+        // Add the new slick-theme.css if you want the default styling
+        <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     </head>
     <body>
-        <div class="for_slick_slider multiple-items">
-            <div class="items">
-                <img src="../img/pink.jpeg" class="img">
-            </div>
-    
-            <div class="items">
-                <img src="../img/black.jpeg" class="img">
-            </div>
-    
-            <div class="items">
-                <img src="../img/pink.jpeg" class="img">
-            </div>
-    
-            <div class="items">
-                <img src="../img/black.jpeg" class="img">
-            </div>
-    
-            <div class="items">
-                <img src="../img/pink.jpeg" class="img">
-            </div>
+        <div class="slider" style="padding: 300px 100px; background-color: yellow;">
+            <div>your content</div>
+            <div>your content</div>
+            <div>your content </div>
         </div>
 
         <script>
-            $(function (){
-                $('.multiple-items').slick({
-                infinite : true,
-                slidesToShow : 3,
-                slidesToScoll : 1,
-                autoplay : true,
-                autoplaySpeed : 2000,
-                dots : false,
-                centerMode : true
+            $(function(){
+                $('.slider').slick({
+                    slide: 'div',
+                    infinite: true,
+                    arrows: true,
                 });
             });
         </script>
+
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="slick/slick.min.js"></script>
     </body>
 </html>
