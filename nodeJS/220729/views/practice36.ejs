@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>file upload</title>
+    </head>
+
+    <body>
+        <!-- 파일을 업로드 하려면 enctype을 설정해줘야한다 -->
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <legend>개인 정보</legend>
+                이름: <input type="text" name="name"> <br>
+                아이디: <input type="text" name="id"> <br>
+                비밀번호: <input type="password" name="password"> <br>
+            </fieldset>
+            <input type="file" name="userfile">
+            <button>upload</button>
+        </form>
+    </body>
+</html>

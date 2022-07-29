@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>file upload</title>
+    </head>
+
+    <body>
+        <!-- 파일을 업로드 하려면 enctype을 설정해줘야한다 -->
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="userfile">
+            <input type="text" name="name">
+            <button>upload</button>
+        </form>
+        <br>
+        <!-- 여러 파일을 같이 올릴 때 -->
+        <form action="/upload/array" method="POST" enctype="multipart/form-data">
+            <!-- multiple: 다중 파일 선택 -->
+            <input type="file" name="userfile" multiple>
+            <button>upload</button>
+        </form>
+        <br>
+        <!-- 파일을 따로 올리지만, 한번에 올릴 때 -->
+        <form action="/upload/fields" method="POST" enctype="multipart/form-data">
+            <input type="file" name="userfile1">
+            <input type="file" name="userfile2">
+            <input type="file" name="userfile3">
+            <button>upload</button>
+        </form>
+    </body>
+</html>
