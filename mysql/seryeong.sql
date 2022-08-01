@@ -39,26 +39,24 @@ CREATE TABLE product_type (
     type_name varchar(10) not null
 );
 
-/* 상품 정보 : 아이디(PK), 상품 타입(product_type 테이블 - type_id), 최대 사이즈, 최소 사이즈, 가격, 위치(store 테이블 - store_id) */ 
+/* 상품 정보 : 아이디(PK), 상품 타입(product_type 테이블 - type_id), 최대 사이즈, 최소 사이즈, 가격 */ 
 CREATE TABLE product (
 	product_id varchar(20) not null primary key,
 	product_type varchar(10),
     FOREIGN KEY ( product_type ) REFERENCES product_type(type_id),
     max_size varchar(5) not null,
     min_size varchar(5) not null,
-    price int not null,
-    store varchar(20),
-    FOREIGN KEY ( store ) REFERENCES store(store_id)
+    price int not null
 );
 
 /* 상품 사이즈 별 수량 : 상품 아이디(product 테이블 - product_id), 사이즈, 수량 */
+/* 사실 없어도 된다. 아래 product_in_store에 있는 정보를 더하면 되니까
 CREATE TABLE amount_per_product_size (
 	product_id varchar(20),
     FOREIGN KEY ( product_id ) REFERENCES product(product_id),
-    /* product 테이블의 max_size 와 min_size 사이의 사이즈만 입력할 수 있게 condition을 설정할 수 있나? */ 
     size varchar(5) not null,
     amount int not null default 0
-);
+); */
 
 /* 매장에 위치한 상품 정보 : 매장 아이디(store - store_id), 상품 아이디(product - product_id), 사이즈, 상품 수량 */ 
 CREATE TABLE product_in_store (
