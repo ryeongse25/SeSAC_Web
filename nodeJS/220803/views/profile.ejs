@@ -6,8 +6,11 @@
          <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
         <script>
+
             function modify() {
-                let form = document.getElementById("profile_form");
+
+                const p = document.querySelectorAll("p");
+                const form = document.getElementById("profile_form");
 
                 axios({
                     method: "post",
@@ -19,21 +22,37 @@
                         origin_pw: form.origin_pw.value
                     }
                 }).then((response) => {
-                    // console.log(response);
                     return response.data;
                 }).then((d) => {
-                    console.log(d);
-                    p = document.querySelectorAll("p");
+                    console.log("modify() : ", d);
                     p[0].innerText = "id : " + d.id;
                     p[1].innerText = "pw : " + d.pw;
+                });
+            }
+
+            function delete_id() {
+
+                const form = document.getElementById("profile_form");
+
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/profile/delete",
+                    data: {
+                        id: form.origin_id.value,
+                        pw: form.origin_pw.value
+                    }
+                }).then((response) => {
+                    return response.data;
+                }).then((d) => {
+                    console.log("delete() : ", d);
                 });
             }
         </script>
     </head>
 
     <body>
-        <p> id : <%=id%> </p>
-        <p> password : <%=pw%> </p>
+        <p>id : <%=id%></p>
+        <p>password : <%=pw%></p>
         <img src="/<%=id%>.jpeg" style="width: 300; margin-bottom: 20;">
         <form id="profile_form">
             <input type="hidden" name="origin_id" value="<%=id%>">
@@ -41,7 +60,7 @@
             새로운 ID : <input type="text" name="new_id"> <br>
             새로운 PW : <input type="password" name="new_pw"> <br>
             <button type="button" onclick="modify();">회원정보 수정</button>
-            <button>회원 탈퇴</button>
+            <button type="button" onclick="delete_id();">회원 탈퇴</button>
         </form>
     </body>
 </html>

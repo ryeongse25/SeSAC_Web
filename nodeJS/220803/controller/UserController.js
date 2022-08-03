@@ -40,7 +40,7 @@ exports.post_login = async (req, res) => {
     }
 
 
-    console.log("user : ", req.body);
+    // console.log("user : ", req.body);
 
     if (flag) {
         res.render("profile", req.body);
@@ -58,7 +58,14 @@ exports.post_login = async (req, res) => {
 }
 
 exports.modify = (req, res) => {
-    console.log("modify : ", req.body);
+    // console.log("modify : ", req.body);
     User.modify_user(req.body);
     res.send(req.body);
+}
+
+exports.delete_id = (req, res) => {
+    console.log("delete : ", req.body);
+    User.delete_user(req.body);
+    res.send(req.body);
+    // res.redirect("/user/login");
 }
