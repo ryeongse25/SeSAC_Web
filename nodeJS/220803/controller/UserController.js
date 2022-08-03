@@ -66,6 +66,6 @@ exports.modify = (req, res) => {
 exports.delete_id = (req, res) => {
     console.log("delete : ", req.body);
     User.delete_user(req.body);
-    res.send(req.body);
+    res.send("탈퇴 되었습니다.");
     // res.redirect("/user/login");
 }
