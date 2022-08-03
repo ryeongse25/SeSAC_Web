@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>profile.ejs</title>
+
+         <!-- Axios -->
+         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <script>
+            function modify() {
+                let form = document.getElementById("profile_form");
+
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/profile/modify",
+                    data: {
+                        id : form.new_id.value,
+                        pw : form.new_pw.value,
+                        origin_id: form.origin_id.value,
+                        origin_pw: form.origin_pw.value
+                    }
+                }).then((response) => {
+                    // console.log(response);
+                    return response.data;
+                }).then((d) => {
+                    console.log(d);
+                    p = document.querySelectorAll("p");
+                    p[0].innerText = "id : " + d.id;
+                    p[1].innerText = "pw : " + d.pw;
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <p> id : <%=id%> </p>
+        <p> password : <%=pw%> </p>
+        <img src="/<%=id%>.jpeg" style="width: 300; margin-bottom: 20;">
+        <form id="profile_form">
+            <input type="hidden" name="origin_id" value="<%=id%>">
+            <input type="hidden" name="origin_pw" value="<%=pw%>">
+            새로운 ID : <input type="text" name="new_id"> <br>
+            새로운 PW : <input type="password" name="new_pw"> <br>
+            <button type="button" onclick="modify();">회원정보 수정</button>
+            <button>회원 탈퇴</button>
+        </form>
+    </body>
+</html>
