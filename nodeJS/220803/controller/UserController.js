@@ -29,32 +29,44 @@ exports.post_login = async (req, res) => {
     for (let i = 0; i < infos.length; i++) {
         info.push(infos[i].split("//"));
     }
-    
+
+    // let msg = "";
+
+    // for (let i = 0; i < info.length; i++ ) {
+    //     if (req.body.id == info[i][0]) {
+    //         if ( req.body.pw == info[i][1]) {
+    //             msg = "success";
+    //             break;
+    //         } else {
+    //             msg = "비밀번호가 다릅니다."
+    //             break;
+    //         }
+    //     } 
+    // }
+    // if ( msg == "" ) msg = "아이디가 존재하지 않습니다.";
+
+    // console.log(msg);
+
+    // if (msg == "sucess") {
+    //     res.render("profile", req.body);
+    // } else {
+    //     res.render("login");
+    // }
+
     let flag = false;
 
-    for (let i = 0; i < info.length; i++ ) {
+    for (let i = 0; i < info.length; i++) {
         if (req.body.id == info[i][0] && req.body.pw == info[i][1]) {
             flag = true;
             break;
         }
     }
 
-
-    // console.log("user : ", req.body);
-
     if (flag) {
         res.render("profile", req.body);
     } else {
         res.redirect("/user/login");
     }
-
-    // if (info[0] != req.body.id) {
-    //     res.send("아이디 다름");
-    // } else if (info[1] != req.body.pw) {
-    //     res.send("비밀번호가 다름");
-    // } else {
-    //     res.send("로그인 성공!");
-    // }
 }
 
 exports.modify = (req, res) => {
@@ -67,5 +79,4 @@ exports.delete_id = (req, res) => {
     console.log("delete : ", req.body);
     User.delete_user(req.body);
     res.send("탈퇴 되었습니다.");
-    // res.redirect("/user/login");
 }
