@@ -27,6 +27,8 @@
                     console.log("modify() : ", d);
                     p[0].innerText = "id : " + d.id;
                     p[1].innerText = "pw : " + d.pw;
+                    form.origin_id.value = d.id;
+                    form.origin_pw.value = d.pw;
                 });
             }
 

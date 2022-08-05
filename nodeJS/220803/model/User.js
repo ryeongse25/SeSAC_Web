@@ -21,7 +21,7 @@ exports.modify_user = async function(data) {
     info_content = info_content.replace(data.origin_id, data.id);
     info_content = info_content.replace(data.origin_pw, data.pw);
     await fs.writeFile("info.txt", info_content);
-    fs.rename("./uploads/a.jpeg", "./uploads/" + data.id + ".jpeg");
+    fs.rename("./uploads/" + data.origin_id + ".jpeg", "./uploads/" + data.id + ".jpeg");
 }
 
 exports.delete_user = async function(data) {
