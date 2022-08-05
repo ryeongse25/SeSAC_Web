@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <title>index.ejs</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <script>
+            function writeComment() {
+
+                let form = document.getElementById("form_comment");
+
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/visitor/write",
+                    data: {
+                        name: form.name.value,
+                        comment: form.comment.value
+                    }
+                }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    // data = { id : }
+                    console.log("data : ", data);
+                    // 새로고침 하기 전에 바로 보여주기 위해 작성한 부분
+                    // 바로 보이게 하기 위해 insert하면서 생긴 insertId를 가져와줬다.
+                    let html = "<tr><td>" + data.id + "</td><td>" + form.name.value + "</td><td>" + form.comment.value + "</td><td><button class='edit_btn'>수정</button></td><td><button>삭제</button></td></tr>";
+                    $("table").append(html);
+                })
+            }
+
+            function cancel() {
+                let make_btns = '<button type="button" onclick="writeComment();">등록</button>';
+                $("form div").html(make_btns);
+
+                let form = document.getElementById("form_comment");
+
+                form.name.value = "";
+                form.comment.value = "";
+            }
+
+            function editComment(id) {
+                console.log("edit");
+
+                let form = document.getElementById("form_comment");
+
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/visitor/edit",
+                    data: {
+                        name: form.name.value,
+                        comment: form.comment.value,
+                        id : id
+                    }
+                }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    console.log(data);
+                    let tr = document.querySelectorAll("tr")[data.id];
+                    let tds = tr.querySelectorAll("td");
+                    let name = tds[1];
+                    let comment = tds[2];
+                    name.innerText = form.name.value;
+                    comment.innerText = form.comment.value;
+                })
+            }
+        </script>
+    </head>
+
+    <body>
+        <form id="form_comment">
+            <fieldset style="width: 300;">
+                <legend>방명록 등록</legend>
+                <input type="text" name="name" placeholder="사용자 이름"> <br>
+                <input type="text" name="comment" placeholder="방명록"> <br>
+                <div>
+                    <button type="button" onclick="writeComment();">등록</button>
+                </div>
+            </fieldset>
+        </form>
+
+        <table border="1" cellspacing="0" cellpadding="5">
+            <tr>
+                <th>ID</th>
+                <th>작성자</th>
+                <th>방명록</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+            <!-- 새로고침 했을 때 database로부터 최신 상태의 data를 항상 불러와서 보여주게 된다. -->
+            <% for (let i = 0; i < data.length; i++ ) { %>
+                <tr>
+                    <td><%=data[i].id%></td>
+                    <td><%=data[i].name%></td>
+                    <td><%=data[i].comment%></td>
+                    <td><button class="edit_btn">수정</button></td>
+                    <td><button>삭제</button></td>
+                </tr>
+            <% } %>
+        </table>
+
+        <script>
+            $(".edit_btn").on("click",  function( obj ) {
+
+                let form = document.getElementById("form_comment");
+
+                target = obj.currentTarget;
+                btn_td = $(target).parent();
+                comment_td = $(btn_td).prev();
+                name_td = $(comment_td).prev();
+                form.name.value = $(name_td).text();
+                form.comment.value = $(comment_td).text();
+                id_td = $(name_td).prev().text();
+                console.log(id_td)
+
+                let make_btns = "<button type='button' onclick='editComment(" + id_td + ");'>수정</button><button type='button' onclick='cancel();'>취소</button>";
+                $("form div").html(make_btns);
+            })
+        </script>
+    </body>
+</html>
