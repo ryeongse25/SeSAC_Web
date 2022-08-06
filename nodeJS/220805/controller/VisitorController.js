@@ -27,3 +27,11 @@ exports.edit_comment = (req, res) => {
         res.send({id : result});
     });
 }
+
+exports.delete_comment = (req, res) => {
+    console.log(req.body);
+    Visitor.delete(req.body.id, function(result) {
+        console.log(result);
+        res.send({id : result});
+    });
+}

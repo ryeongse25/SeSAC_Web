@@ -38,3 +38,11 @@ exports.update = (name, comment, id, cb) => {
         cb( id );
     })
 }
+
+exports.delete = (id, cb) => {
+    let sql = "DELETE from visitor WHERE id = '" + id + "'";
+    cnn.query(sql, (err, rows) => {
+        if (err) throw err;
+        cb( id );
+    })
+}

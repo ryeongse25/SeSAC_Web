@@ -20,10 +20,10 @@
                     return response.data;
                 }).then((data) => {
                     // data = { id : }
-                    console.log("data : ", data);
+                    console.log(data);
                     // 새로고침 하기 전에 바로 보여주기 위해 작성한 부분
                     // 바로 보이게 하기 위해 insert하면서 생긴 insertId를 가져와줬다.
-                    let html = "<tr><td>" + data.id + "</td><td>" + form.name.value + "</td><td>" + form.comment.value + "</td><td><button class='edit_btn'>수정</button></td><td><button>삭제</button></td></tr>";
+                    let html = "<tr><td>" + data.id + "</td><td>" + form.name.value + "</td><td>" + form.comment.value + "</td><td><button class='edit_btn'>수정</button></td><td><button class='delete_btn'>삭제</button></td></tr>";
                     $("table").append(html);
                 })
             }
@@ -54,6 +54,7 @@
                 }).then((response) => {
                     return response.data;
                 }).then((data) => {
+                    // {id: }
                     console.log(data);
                     let tr = document.querySelectorAll("tr")[data.id];
                     let tds = tr.querySelectorAll("td");
@@ -61,6 +62,13 @@
                     let comment = tds[2];
                     name.innerText = form.name.value;
                     comment.innerText = form.comment.value;
+
+                    alert("수정 성공");
+                    form.name.value = "";
+                    form.comment.value = "";
+
+                    let make_btns = "<button type='button' onclick='writeComment();'>등록</button>";
+                    $("form div").html(make_btns);
                 })
             }
         </script>
@@ -93,27 +101,59 @@
                     <td><%=data[i].name%></td>
                     <td><%=data[i].comment%></td>
                     <td><button class="edit_btn">수정</button></td>
-                    <td><button>삭제</button></td>
+                    <td><button class='delete_btn'>삭제</button></td>
                 </tr>
             <% } %>
         </table>
 
         <script>
+            let form = document.getElementById("form_comment");
+
             $(".edit_btn").on("click",  function( obj ) {
+                let target = obj.currentTarget;
+                let tr = target.parentNode.parentNode;
+                let tds = tr.querySelectorAll("td");
+                let id = $(tds[0]).text();
+                let name = tds[1];
+                let comment = tds[2];
 
-                let form = document.getElementById("form_comment");
+                form.name.value = $(name).text();
+                form.comment.value = $(comment).text();
 
-                target = obj.currentTarget;
-                btn_td = $(target).parent();
-                comment_td = $(btn_td).prev();
-                name_td = $(comment_td).prev();
-                form.name.value = $(name_td).text();
-                form.comment.value = $(comment_td).text();
-                id_td = $(name_td).prev().text();
-                console.log(id_td)
-
-                let make_btns = "<button type='button' onclick='editComment(" + id_td + ");'>수정</button><button type='button' onclick='cancel();'>취소</button>";
+                let make_btns = "<button type='button' onclick='editComment(" + id + ");'>수정</button><button type='button' onclick='cancel();'>취소</button>";
                 $("form div").html(make_btns);
+            })
+
+            $(".delete_btn").on("click", function( obj ) {
+
+                let target = obj.currentTarget;
+                let tr = target.parentNode.parentNode;
+                let tds = tr.querySelectorAll("td");
+                let id = $(tds[0]).text();
+                console.log(id);
+
+                axios({
+                    method: "post",
+                    url: "http://localhost:8080/visitor/delete",
+                    data: {
+                        id : id
+                    }
+                }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    console.log(data.id);
+                    let table = document.querySelector("table");
+                    // [tr, tr, tr, tr, ...]
+                    let delete_row = table.querySelectorAll("tr");
+                    for (let i = 0; i < delete_row.length; i++) {
+                        let cell = delete_row[i].querySelectorAll("td");
+                        if ($(cell[0]).text() == data.id) {
+                            console.log(delete_row[i]);
+                            $(delete_row[i]).html("");
+                        }
+                    }
+                    alert("삭제 성공");
+                });
             })
         </script>
     </body>
