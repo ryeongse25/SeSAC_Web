@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>프로필</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+        <script>
+            function editProfile() {
+                let form = document.getElementById("form_profile");
+
+                axios({
+                    method: "patch",
+                    url: "http://localhost:8080/user/edit",
+                    data: {
+                        o_id: '<%=data.id%>',
+                        o_name: '<%=data.name%>',
+                        o_pw: '<%=data.password%>',
+                        o_email: '<%=data.email%>',
+                        name: form.name.value,
+                        pw: form.pw.value,
+                        email: form.email.value
+                    }
+                }).then((response) => {
+                    return response.data;
+                }).then((data) => {
+                    let {o_name, o_pw, o_email, name, pw, email} = data;
+
+                    if (name == "") name = o_name;
+                    if (pw == "") pw = o_pw;
+                    if (email == "") email = o_email;
+
+                    let p = document.querySelectorAll("p");
+
+                    p[0].innerText = "name : " + name;
+                    p[2].innerText = "pw : " + pw;
+                    p[3].innerText = "email : " + email;
+                })
+            }
+
+            function deleteProfile() {
+                let form = document.getElementById("form_profile");
+
+                alert("delete1");
+
+                axios({
+                    method: "delete",
+                    url: "http://localhost:8080/user/delete",
+                    data: {
+                        id: '<%=data.id%>'
+                    }
+                }).then((response) => {
+                    alert("delete2");
+                    return response.data;
+                }).then((data) => {
+                    alert(data);
+                    window.location.href = "/user/login";
+                })
+            }
+        </script>
+    </head>
+    <body>
+        <p> name : <%=data.name%> </p> <br>
+        <p> id : <%=data.id%> </p> <br>
+        <p> pw : <%=data.password%> </p> <br>
+        <p> email : <%=data.email%> </p> <br> <br>
+        <form id="form_profile">
+            <input type="text" name="name" placeholder="NEW NAME"> <br>
+            <input type="password" name="pw" placeholder="NEW PASSWORD"> <br> 
+            <input type="email" name="email" placeholder="NEW E-MAIL"> <br><br>
+            <button type="button" onclick="editProfile();">수정</button>
+            <button type="buttton" onclick="deleteProfile();">탈퇴</button>
+        </form>
+    </body>
+</html>
