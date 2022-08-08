@@ -15,11 +15,10 @@ exports.get_visitors = (cb) => {
     // cnn.query는 callback방식
     cnn.query('SELECT * FROM visitor', (err, rows) => {
         if (err) throw err;
-        console.log("SELECT * FROM visitor : ", rows);
+        // console.log("SELECT * FROM visitor : ", rows);
         cb(rows);
     })
 }
-
 
 exports.insert = (name, comment, cb) => {
     let sql = "INSERT INTO visitor (name, comment) VALUES ('" + name + "', '" + comment + "')";
@@ -30,19 +29,24 @@ exports.insert = (name, comment, cb) => {
     })
 }
 
-exports.update = (name, comment, id, cb) => {
-    let sql = "UPDATE visitor SET name = '" + name + "', comment = '" + comment + "' WHERE id = '" + id + "'";
+exports.get_visitor = (id, cb) => {
+    cnn.query(`SELECT * FROM visitor WHERE id = ${id} LIMIT 1`, (err, rows) => {
+        if (err) throw err;
+        cb(rows);
+    })
+}
+
+exports.update = (id, name, comment, cb) => {
+    let sql = `UPDATE visitor SET name = '${name}', comment = '${comment}' WHERE id = ${id}`;
     cnn.query(sql, (err, rows) => {
         if (err) throw err;
-        console.log("INSERT : ", rows);
-        cb( id );
+        cb( rows );
     })
 }
 
 exports.delete = (id, cb) => {
-    let sql = "DELETE from visitor WHERE id = '" + id + "'";
-    cnn.query(sql, (err, rows) => {
+    cnn.query(`DELETE from visitor WHERE id = ${id}`, (err, rows) => {
         if (err) throw err;
-        cb( id );
+        cb( rows );
     })
 }
