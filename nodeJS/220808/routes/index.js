@@ -8,7 +8,9 @@ router.post("/register", user.register);
 
 // login
 router.get("/login", user.login_page);
-router.post("/profile", user.login);
+router.post("/login", user.login);
+
+router.post("/profile", user.profile);
 
 // edit
 router.patch("/edit", user.edit);

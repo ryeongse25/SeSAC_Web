@@ -20,18 +20,27 @@ exports.login = (req, res) => {
     User.login(req.body, function(result) {
         console.log(result);
         if (result.length == 0) {
-            res.redirect("/user/login");
+            res.send(false);
         } else {
-            res.render("profile", {data: result[0]});
+            res.send(true);
         }
     });
 }
 
+exports.profile = (req, res) => {
+    console.log(req.body);
+    User.get_user(req.body, function(result) {
+        console.log(result);
+        res.render("profile", {data: result[0]});
+    });
+}
+
 exports.edit = (req, res) => {
+    // {id: , name: , pw: , email: }
     console.log(req.body);
     User.update(req.body, function(result) {
         console.log(result);
-        res.send(req.body);
+        res.send("회원정보가 수정 되었습니다.");
     });
 }
 
