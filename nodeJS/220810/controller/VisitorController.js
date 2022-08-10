@@ -61,7 +61,6 @@ exports.patch_comment = (req,res) => {
 exports.delete_comment = (req,res) => {
     models.Visitor.destroy({where: {id: req.body.id}})
     .then((result) => {
-        // 몇 개의 데이터가 삭제되었는지 => 1
         console.log( result );
         res.send( "삭제 성공" );
     })

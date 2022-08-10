@@ -11,7 +11,7 @@
 
                 axios({
                     method: "patch",
-                    url: "http://localhost:8080/user/edit",
+                    url: "http://localhost:8000/user/edit",
                     data: {
                         id: form.id.value,
                         name: form.name.value,
@@ -29,7 +29,7 @@
                 
                 axios({
                     method: "delete",
-                    url: "http://localhost:8080/user/delete",
+                    url: "http://localhost:8000/user/delete",
                     data: {
                         id: '<%=data.id%>'
                     }
