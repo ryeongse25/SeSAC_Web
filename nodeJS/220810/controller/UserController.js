@@ -66,6 +66,6 @@ exports.delete = (req, res) => {
     models.User.destroy({where: {id: req.body.id}})
     .then((result) => {
         console.log("delete : ", result );
-        res.send( "삭제 성공" );
+        res.send("성공적으로 탈퇴되었습니다.");
     })
 }
