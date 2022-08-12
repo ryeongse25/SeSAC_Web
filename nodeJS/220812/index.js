@@ -21,9 +21,9 @@ const cookieConfig = {
     // cookie에 접근할 수 있는 시작 경로 -> "/"로 시작하는 경로에서 다 접근 가능
     path: '/',
     // true라고 설정 시 클라이언트에서 document.cookie로 접속 불가. 서버를 통해서만 접근 가능
-    httpOnly: false,
+    // httpOnly: false,
     // 쿠키 암호화 (앞뒤로 문자열이 붇는다)
-    signed: true
+    // signed: true
 };
 
 app.get("/", function(req, res) {
@@ -80,6 +80,7 @@ app.get("/profile", (req, res) => {
 })
 
 app.get("/practice", (req, res) => {
+    //res.cookie("key", "value", cookieConfig);
     res.render("practice48");
 })
 

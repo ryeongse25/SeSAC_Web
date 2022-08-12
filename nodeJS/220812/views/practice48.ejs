@@ -14,7 +14,7 @@
                     console.log(document.cookie);
                 } else {
                     document.cookie = "";
-                    console.log(document.cookie);
+                    console.log("cookie : ", document.cookie);
                 }
             }
         </script>
@@ -43,7 +43,6 @@
         </div>
     </body>
     <script>
-        document.cookie = "today=yes";
         if (document.cookie == "") {
             $(document).ready(function() {
                 $("#exampleModal").modal("show");
