@@ -6,16 +6,17 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
         <script>
-            function is_checked() {
+            function close_btn() {
                 let modal_checkbox = document.querySelector("input");
 
                 if (modal_checkbox.checked) {
-                    document.cookie = "today=no; expires=Sat, 13 Aug 2022 00:00:00 GMT; path=/";
+                    document.cookie = "today=no; expires=Sat, 14 Aug 2022 00:00:00 GMT; path=/";
                     console.log(document.cookie);
-                } else {
-                    document.cookie = "";
-                    console.log("cookie : ", document.cookie);
                 }
+                // } else {
+                //     document.cookie = "today=yes";
+                //     console.log("cookie : ", document.cookie);
+                // }
             }
         </script>
     </head>
@@ -25,34 +26,38 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">안내</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <h4>인터넷익스플로러(IE) 지원 종료 안내</h4>
                   <p>인터넷익스플로러(IE) 서비스 지원이 2022년 6월 15일 종료됨에 따라 안전하고 원활한 LH청약센터 이용을 위해 크롬, 사파리, 엣지 등의 웹브라우저를 이용해주시기 바랍니다.</p>
                 </div>
                 <div class="modal-footer">
-                    <div style="margin-right: 150;">
-                        <input type="checkbox" onclick="is_checked();"> 오늘그만보기
+                    <div style="margin-right: 280;">
+                        <input type="checkbox"> 오늘 그만보기
                     </div>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="close_btn()">Close</button>
                 </div>
               </div>
             </div>
         </div>
     </body>
     <script>
-        if (document.cookie == "") {
+        let flag  = true
+        let cookieArr = document.cookie.split(";");
+        console.log(cookieArr);
+        for (let i in cookieArr) {
+            console.log(cookieArr[i]);
+            let cookie = cookieArr[i].split("=");
+            console.log(cookie);
+            if (cookie[0] == " today" && cookie[1] == "no") {
+                flag = false;
+                break;
+            }
+        }
+        if (flag == true) {
             $(document).ready(function() {
                 $("#exampleModal").modal("show");
             });
-        } else {
-            let cookieArr = document.cookie.split(";");
-            console.log(cookieArr);
-            let cookieTodayArr = cookieArr[0].split("=");
-            let cookieToday = cookieTodayArr[1];
-            console.log(cookieToday);
         }
     </script>
 </html>
