@@ -84,6 +84,14 @@ app.get("/practice", (req, res) => {
     res.render("practice48");
 })
 
+app.get("/practice49", (req, res) => {
+    res.render("practice49");
+})
+
+app.post("/practice49", (req, res) => {
+    console.log(req.body);
+})
+
 app.listen(port, () => {
     console.log("Server Port : ", port);
 })
