@@ -3,8 +3,11 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const app = express();
 const port = 8080;
+const bodyParser = require("body-parser");
 
 app.set("view engine", "ejs");
+app.use(express.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(cookieParser('1234'));
 app.use(session({
     secret: 'secret key',
@@ -26,72 +29,83 @@ const cookieConfig = {
     // signed: true
 };
 
-app.get("/", function(req, res) {
-    req.session.name = "홍길동";
+// app.get("/", function(req, res) {
+    // req.session.name = "홍길동";
     // 쿠키 설정(res)
     // res.cookie('today', 'yes', cookieConfig);
-    res.render("index");
-})
+    // res.render("index");
+// })
 
-app.get("/get", (req, res) => {
-    console.log(req.session.name);
+// app.get("/get", (req, res) => {
+    // console.log(req.session.name);
     // 쿠키 받기(req)
-    console.log(req.cookies);
-    res.send(req.cookies);
-})
+    // console.log(req.cookies);
+    // res.send(req.cookies);
+// })
 
-app.get("/cookie", (req, res) => {
-    res.render("cookie");
-})
+// app.get("/cookie", (req, res) => {
+    // res.render("cookie");
+// })
 
-app.get("/destroy", (req,res) => {
+// app.get("/destroy", (req,res) => {
     // 세션 값 전부 지우기
     // req.session.destroy(function(err) {
     //     res.send("삭제");
     // })
     // 한개의 세션 값만 바꾼다
-    req.session.name = "123";
-    res.send("123");
-})
+    // req.session.name = "123";
+    // res.send("123");
+// })
 
-app.get("/login", (req, res) => {
-    res.render("login");
-})
+// app.get("/login", (req, res) => {
+    // res.render("login");
+// })
 
-app.post("/login", (req, res) => {
-    let flag = true;
-    if (flag) {
-        req.session.id = req.body.id;
+// app.post("/login", (req, res) => {
+    // let flag = true;
+    // if (flag) {
+    //     req.session.id = req.body.id;
         // "/profile" 링크로 이동
-        res.redirect("/profile");
-    } else {
-        res.redirect("/login");
-    }
-})
+//         res.redirect("/profile");
+//     } else {
+//         res.redirect("/login");
+//     }
+// })
 
-app.get("/profile", (req, res) => {
+// app.get("/profile", (req, res) => {
     // 비정상적인 로그인
-    if (req.session.id == undefined || req.session.id == "") {
-        res.redirect("/login");
-        return false;
-    }
+    // if (req.session.id == undefined || req.session.id == "") {
+    //     res.redirect("/login");
+    //     return false;
+    // }
     // 정상적으로 로그인 했을 경우 req.session.id로 데이터베이스에서 정보를 가져올 수 있다.
-    res.render("profile");
-})
+//     res.render("profile");
+// })
 
 app.get("/practice", (req, res) => {
-    //res.cookie("key", "value", cookieConfig);
     res.render("practice48");
 })
 
-app.get("/practice49", (req, res) => {
+// practice 49
+app.get("/practice49/login", (req, res) => {
     res.render("practice49");
 })
 
-app.post("/practice49", (req, res) => {
-    console.log(req.body);
+app.get("/practice49", (req, res) => {
+    data = {session: req.session.id};
+    res.render("index", data);
 })
 
+app.post("/practice49", (req, res) => {
+    if (req.body.id == "sese" && req.body.pw == "1234") {
+        req.session.id = "sese";
+    }
+    console.log(req.session.id);
+    data = {session: req.session.id, id: req.body.id};
+    res.render("index", data);
+})
+
+// 서버 열기
 app.listen(port, () => {
     console.log("Server Port : ", port);
 })
