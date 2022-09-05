@@ -1,0 +1,101 @@
+Server Port :  8080
+{ name: 'ㅇㅇ', id: 'boo', password: 'boo', mail: 'd@d' }
+InternalServerError: stream is not readable
+    at readStream (/nodeJS/node_modules/raw-body/index.js:178:17)
+    at getRawBody (/nodeJS/node_modules/raw-body/index.js:109:12)
+    at read (/nodeJS/node_modules/body-parser/lib/read.js:79:3)
+    at urlencodedParser (/nodeJS/node_modules/body-parser/lib/types/urlencoded.js:116:5)
+    at Layer.handle [as handle_request] (/nodeJS/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/nodeJS/node_modules/express/lib/router/index.js:328:13)
+    at /nodeJS/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/nodeJS/node_modules/express/lib/router/index.js:346:12)
+    at next (/nodeJS/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/nodeJS/node_modules/serve-static/index.js:121:7)
+InternalServerError: stream is not readable
+    at readStream (/nodeJS/node_modules/raw-body/index.js:178:17)
+    at getRawBody (/nodeJS/node_modules/raw-body/index.js:109:12)
+    at read (/nodeJS/node_modules/body-parser/lib/read.js:79:3)
+    at urlencodedParser (/nodeJS/node_modules/body-parser/lib/types/urlencoded.js:116:5)
+    at Layer.handle [as handle_request] (/nodeJS/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/nodeJS/node_modules/express/lib/router/index.js:328:13)
+    at /nodeJS/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/nodeJS/node_modules/express/lib/router/index.js:346:12)
+    at next (/nodeJS/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/nodeJS/node_modules/serve-static/index.js:121:7)
+InternalServerError: stream is not readable
+    at readStream (/nodeJS/node_modules/raw-body/index.js:178:17)
+    at getRawBody (/nodeJS/node_modules/raw-body/index.js:109:12)
+    at read (/nodeJS/node_modules/body-parser/lib/read.js:79:3)
+    at urlencodedParser (/nodeJS/node_modules/body-parser/lib/types/urlencoded.js:116:5)
+    at Layer.handle [as handle_request] (/nodeJS/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/nodeJS/node_modules/express/lib/router/index.js:328:13)
+    at /nodeJS/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/nodeJS/node_modules/express/lib/router/index.js:346:12)
+    at next (/nodeJS/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/nodeJS/node_modules/serve-static/index.js:121:7)
+InternalServerError: stream is not readable
+    at readStream (/nodeJS/node_modules/raw-body/index.js:178:17)
+    at getRawBody (/nodeJS/node_modules/raw-body/index.js:109:12)
+    at read (/nodeJS/node_modules/body-parser/lib/read.js:79:3)
+    at urlencodedParser (/nodeJS/node_modules/body-parser/lib/types/urlencoded.js:116:5)
+    at Layer.handle [as handle_request] (/nodeJS/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/nodeJS/node_modules/express/lib/router/index.js:328:13)
+    at /nodeJS/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/nodeJS/node_modules/express/lib/router/index.js:346:12)
+    at next (/nodeJS/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/nodeJS/node_modules/serve-static/index.js:121:7)
+InternalServerError: stream is not readable
+    at readStream (/nodeJS/node_modules/raw-body/index.js:178:17)
+    at getRawBody (/nodeJS/node_modules/raw-body/index.js:109:12)
+    at read (/nodeJS/node_modules/body-parser/lib/read.js:79:3)
+    at urlencodedParser (/nodeJS/node_modules/body-parser/lib/types/urlencoded.js:116:5)
+    at Layer.handle [as handle_request] (/nodeJS/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/nodeJS/node_modules/express/lib/router/index.js:328:13)
+    at /nodeJS/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/nodeJS/node_modules/express/lib/router/index.js:346:12)
+    at next (/nodeJS/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/nodeJS/node_modules/serve-static/index.js:121:7)
+InternalServerError: stream is not readable
+    at readStream (/nodeJS/node_modules/raw-body/index.js:178:17)
+    at getRawBody (/nodeJS/node_modules/raw-body/index.js:109:12)
+    at read (/nodeJS/node_modules/body-parser/lib/read.js:79:3)
+    at urlencodedParser (/nodeJS/node_modules/body-parser/lib/types/urlencoded.js:116:5)
+    at Layer.handle [as handle_request] (/nodeJS/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/nodeJS/node_modules/express/lib/router/index.js:328:13)
+    at /nodeJS/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/nodeJS/node_modules/express/lib/router/index.js:346:12)
+    at next (/nodeJS/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/nodeJS/node_modules/serve-static/index.js:121:7)
+InternalServerError: stream is not readable
+    at readStream (/nodeJS/node_modules/raw-body/index.js:178:17)
+    at getRawBody (/nodeJS/node_modules/raw-body/index.js:109:12)
+    at read (/nodeJS/node_modules/body-parser/lib/read.js:79:3)
+    at urlencodedParser (/nodeJS/node_modules/body-parser/lib/types/urlencoded.js:116:5)
+    at Layer.handle [as handle_request] (/nodeJS/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/nodeJS/node_modules/express/lib/router/index.js:328:13)
+    at /nodeJS/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/nodeJS/node_modules/express/lib/router/index.js:346:12)
+    at next (/nodeJS/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/nodeJS/node_modules/serve-static/index.js:121:7)
+InternalServerError: stream is not readable
+    at readStream (/nodeJS/node_modules/raw-body/index.js:178:17)
+    at getRawBody (/nodeJS/node_modules/raw-body/index.js:109:12)
+    at read (/nodeJS/node_modules/body-parser/lib/read.js:79:3)
+    at urlencodedParser (/nodeJS/node_modules/body-parser/lib/types/urlencoded.js:116:5)
+    at Layer.handle [as handle_request] (/nodeJS/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/nodeJS/node_modules/express/lib/router/index.js:328:13)
+    at /nodeJS/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/nodeJS/node_modules/express/lib/router/index.js:346:12)
+    at next (/nodeJS/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/nodeJS/node_modules/serve-static/index.js:121:7)
+InternalServerError: stream is not readable
+    at readStream (/nodeJS/node_modules/raw-body/index.js:178:17)
+    at getRawBody (/nodeJS/node_modules/raw-body/index.js:109:12)
+    at read (/nodeJS/node_modules/body-parser/lib/read.js:79:3)
+    at urlencodedParser (/nodeJS/node_modules/body-parser/lib/types/urlencoded.js:116:5)
+    at Layer.handle [as handle_request] (/nodeJS/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/nodeJS/node_modules/express/lib/router/index.js:328:13)
+    at /nodeJS/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/nodeJS/node_modules/express/lib/router/index.js:346:12)
+    at next (/nodeJS/node_modules/express/lib/router/index.js:280:10)
+    at SendStream.error (/nodeJS/node_modules/serve-static/index.js:121:7)
