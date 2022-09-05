@@ -19,12 +19,13 @@ a {
 
 main {
     padding: 0 20px;
-    /* position: relative; */
 }
 
 header {
     background-color: pink;
     padding: 0 20px;
+    position: relative;
+    z-index: 100;
 }
 
 h1 {
@@ -43,8 +44,29 @@ h1 {
     margin: 0 10px;
 }
 
-.d-none {
-    display: none;
+.showAnimation {
+    animation-name: showAnimation;
+    animation-duration: 1.5s;
+}
+
+.hideAnimation {
+    animation-name: hideAnimation;
+    animation-duration: 1.5s;
+}
+
+@keyframes showAnimation {
+    0% { top: -80px; opacity: 0%; }
+    100% { top: 80px; opacity: 100%; }
+}
+
+@keyframes hideAnimation {
+    0% { top: 80px; opacity: 100%; }
+    100% { top: -80px; opacity: 0%; }
+}
+
+.slide_menu_item {
+    top: -80px; 
+    opacity: 0%;
 }
 
 .slide_menu {
