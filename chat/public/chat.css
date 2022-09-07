@@ -1,0 +1,57 @@
+.container {
+    width: 450px;
+    height: 700px;
+    margin: 150px auto;
+    background-color: skyblue;
+    overflow-y: scroll;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+i {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bi-search {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+/* 
+.container div div {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.white div {
+    background-color: white;
+    position: relative;
+}
+.white div:after {
+content: '';
+position: absolute;
+left: 0;
+top: 50%;
+width: 0;
+height: 0;
+border: 0.4em solid transparent;
+border-right-color: white;
+border-left: 0;
+margin-top: -0.4em;
+margin-left: -0.4em;
+}
+.yellow {
+    text-align: right;
+}
+.yellow div {
+    background-color: yellow;
+}
+.center {
+    text-align: center;
+} */

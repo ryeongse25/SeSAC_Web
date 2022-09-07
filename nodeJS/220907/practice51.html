@@ -17,7 +17,21 @@
             }
             .white div {
                 background-color: white;
+                position: relative;
             }
+            .white div:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 0.4em solid transparent;
+            border-right-color: white;
+            border-left: 0;
+            margin-top: -0.4em;
+            margin-left: -0.4em;
+        }
             .yellow {
                 text-align: right;
             }

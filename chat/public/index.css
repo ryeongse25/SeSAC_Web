@@ -1,0 +1,38 @@
+.container {
+    background-color: rgb(255, 242, 0);
+    width: 450px;
+    height: 700px;
+    margin: 150px auto;
+}
+
+form {
+    text-align: center;
+    padding-top: 100px;
+}
+
+input {
+    border: none;
+    width: 250px;
+    height: 35px;
+    margin: 50px 0 10px 0;
+    padding-left: 10px;
+}
+
+input:focus {
+    outline: 1.5px rgb(30, 23, 23) solid;
+}
+
+button {
+    width: 250px;
+    height: 30px;
+    border: none;
+    background-color: white;
+    color: rgb(30, 23, 23);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: rgb(30, 23, 23);
+    color: white;
+}
