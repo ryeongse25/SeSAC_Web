@@ -1,16 +1,16 @@
 .container {
     width: 450px;
     height: 700px;
-    margin: 150px auto;
+    margin: 150px auto 0 auto;
     background-color: skyblue;
-    overflow-y: scroll;
+    overflow-y: none;
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 15px;
 }
 
 i {
@@ -20,9 +20,43 @@ i {
 
 .bi-search {
     font-size: 18px;
-    margin-right: 10px;
+    margin: 0 10px 0 0;
 }
 
+.bi-list {
+    font-size: 23px;
+}
+
+#msg-box {
+    width: 100%;
+}
+
+.input-box {
+    width: 450px;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+}
+
+input {
+    width: 350px;
+    height: 37px;
+    border: none;
+    background-color: rgb(247, 247, 247);
+    border-radius: 15px;
+    margin: 5px 0;
+}
+
+button {
+    width: 50px;
+    height: 37px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+button:hover {
+}
 /* 
 .container div div {
     padding: 5px 10px;
