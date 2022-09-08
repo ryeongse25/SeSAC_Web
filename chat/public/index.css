@@ -3,6 +3,8 @@
     width: 450px;
     height: 700px;
     margin: 150px auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 form {
