@@ -24,7 +24,7 @@
             </div>
             <div id="msg-box"></div>
         </div>
-        <div class="side-container slide_menu_item" style="display: none;">
+        <div class="side-container hide">
             <div class="member-container">
                 <h5>채팅방 서랍</h5>
                 <hr style="margin: 10px; border: 0.5px solid lightgray;">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="input-box">
-            <input type="text" id="message">
+            <input type="text" id="message" onkeyup="pressEnter();">
             <i class="bi bi-arrow-up-circle-fill" onclick="btnSend()"></i>
         </div>
 

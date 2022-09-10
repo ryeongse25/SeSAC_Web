@@ -15,7 +15,6 @@ app.get("/", function(req, res) {
 });
 
 app.post("/chat", function(req, res) {
-    console.log(req.body);
     res.render("chat",  {nickname: req.body.nickname});
 });
 
@@ -23,9 +22,9 @@ io.on("connection", function(socket) {
     // info -> socket.id 보내주기
     socket.emit("info", socket.id);
 
-    // send -> 아이디, 메세지 받기
+    // send -> 닉네임, 아이디, 메세지 받기
     socket.on("send", function(data) {
-        // newMSG -> 아이디, 메세지 보내기
+        // newMSG -> 닉네임, 아이디, 메세지 보내기
         io.emit("newMSG", data);
     })
 
@@ -40,6 +39,12 @@ io.on("connection", function(socket) {
     socket.on("disconnect", function() {
         // disconnect -> 퇴장 문구 보내기
         io.emit("notice", nickname + "님이 퇴장하셨습니다.");
+    })
+
+    let member_list = [];
+    socket.on("member", function(data) {
+        member_list.push(data);
+        io.emit("member_list", member_list);
     })
 })
 
