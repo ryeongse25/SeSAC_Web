@@ -2,21 +2,19 @@
     <head>
         <title>환영합니다</title>
         <link rel="stylesheet" href="/index.css">
-        <script>
-            function pressEnter() {
-                if (window.event.keyCode == 13) {
-                    $("#name_form").submit();
-                }
-            }
-        </script>
     </head>
     <body>
         <div class="container">
-            <form id="name_form" action="/chat" method="post">
+            <form id="name_form" action="/chat" method="post" enctype="multipart/form-data">
                 <img src="/logo.png" width="200"> <br>
+                <label for="profile">
+                    <img src="/profile_img/sample.png">
+                </label>
+                <input type="file" id="profile" name="userfile" hidden onchange="imgPreview();">
                 <input type="text" name="nickname" placeholder="닉네임을 입력해주세요" onkeyup="pressEnter();" required> <br>
                 <button>채팅방 입장하기</button>
             </form>
         </div>
+        <script src="/main.js"></script>
     </body>
 </html>

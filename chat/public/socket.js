@@ -1,8 +1,9 @@
 // member -> nickname 보내기
 socket.emit("member", nickname);
 
+// member_list -> member_list 받기
 socket.on("member_list", function(data) {
-    console.log(data);
+    $(".member-container").append(data);
 })
 
 // info -> socket.id 받기
@@ -22,7 +23,7 @@ socket.on("newMSG", function(data) {
         $(div_container).addClass("my-chat");
     } else {
         // if (data.id != tmp) {
-            $(div_container).append('<img src="/profile.png">');
+            $(div_container).append('<img src="/profile_img/sample.png">');
             $(div_container).append('<span>' + data.nickname + '</span>');
             $(div_container).addClass("other-chat");
         // } else {

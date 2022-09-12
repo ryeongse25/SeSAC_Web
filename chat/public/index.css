@@ -14,9 +14,9 @@ form {
 
 input {
     border: none;
-    width: 250px;
+    width: 188px;
     height: 35px;
-    margin: 50px 0 10px 0;
+    margin: 0 0 10px 0;
     padding-left: 10px;
 }
 
@@ -37,4 +37,15 @@ button {
 button:hover {
     background-color: rgb(30, 23, 23);
     color: white;
+}
+
+label img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: 1.5px solid rgb(30, 23, 23);
+    border-radius: 50%;
+    position: relative;
+    top: 15px;
+    margin-right: 12px;
 }

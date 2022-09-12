@@ -4,6 +4,21 @@ const http = require("http").Server(app);
 const io = require("socket.io")(http);
 const port = 8000;
 const bodyParser = require("body-parser");
+const multer = require("multer");
+const path = require("path");
+const upload = multer({
+    storage: multer.diskStorage({
+        destination(req, file, done) {
+            done(null, 'public/profile_img');
+        },
+        filename(req, file, done) {
+            console.log(req.body);
+            const ext = path.extname(file.originalname);
+            done(null, req.body.nickname + ext);
+        }
+    }),
+    limits: {fileSize : 5*1024*1024},
+})
 
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
@@ -14,7 +29,8 @@ app.get("/", function(req, res) {
     res.render("index");
 });
 
-app.post("/chat", function(req, res) {
+app.post("/chat", upload.single('userfile'), function(req, res) {
+    console.log(req.file);
     res.render("chat",  {nickname: req.body.nickname});
 });
 
@@ -41,10 +57,9 @@ io.on("connection", function(socket) {
         io.emit("notice", nickname + "님이 퇴장하셨습니다.");
     })
 
-    let member_list = [];
     socket.on("member", function(data) {
-        member_list.push(data);
-        io.emit("member_list", member_list);
+        // member_list -> member_list 보내기
+        io.emit("member_list", data);
     })
 })
 
