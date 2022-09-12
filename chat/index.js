@@ -12,7 +12,6 @@ const upload = multer({
             done(null, 'public/profile_img');
         },
         filename(req, file, done) {
-            console.log(req.body);
             const ext = path.extname(file.originalname);
             done(null, req.body.nickname + ext);
         }
@@ -31,7 +30,7 @@ app.get("/", function(req, res) {
 
 app.post("/chat", upload.single('userfile'), function(req, res) {
     console.log(req.file);
-    res.render("chat",  {nickname: req.body.nickname});
+    res.render("chat",  {nickname: req.body.nickname, filename: req.file.filename});
 });
 
 io.on("connection", function(socket) {

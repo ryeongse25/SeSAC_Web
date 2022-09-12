@@ -23,7 +23,7 @@ socket.on("newMSG", function(data) {
         $(div_container).addClass("my-chat");
     } else {
         // if (data.id != tmp) {
-            $(div_container).append('<img src="/profile_img/sample.png">');
+            $(div_container).append('<img src="/profile_img/' + filename + '">');
             $(div_container).append('<span>' + data.nickname + '</span>');
             $(div_container).addClass("other-chat");
         // } else {
