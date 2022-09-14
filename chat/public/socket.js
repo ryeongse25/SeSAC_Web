@@ -16,6 +16,7 @@ socket.on("info", function(data) {
 socket.on("newMSG", function(data) {
     let div_container = document.createElement("div");
     let div = document.createElement("div");
+    let div_msg = document.createElement("div");
     let p = document.createElement("p");
 
     // 내가 쓴 메세지
@@ -26,7 +27,7 @@ socket.on("newMSG", function(data) {
         // console.log(img_exists);
         // if (data.id != tmp) {
             $(div_container).append('<img src="/profile_img/' + filename + '">');
-            $(div_container).append('<span>' + data.nickname + '</span>');
+            $(div).append('<p>' + data.nickname + '</p>');
             $(div_container).addClass("other-chat");
         // } else {
             // $(div_container).addClass("other-chat");
@@ -35,7 +36,8 @@ socket.on("newMSG", function(data) {
         // let tmp = data.id;
     }
     
-    div.innerText = data.msg;
+    div_msg.innerText = data.msg;
+    $(div).append(div_msg);
     $(div_container).append(div);
     $("#msg-box").append(div_container);
 })

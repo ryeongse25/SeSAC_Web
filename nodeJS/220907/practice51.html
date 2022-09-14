@@ -31,7 +31,7 @@
             border-left: 0;
             margin-top: -0.4em;
             margin-left: -0.4em;
-        }
+            }
             .yellow {
                 text-align: right;
             }
@@ -47,15 +47,16 @@
     <body>
         <h1>Hello Socket!</h1>
         <div class="container"></div>
-        <div id="name_form">
-            <input type="text" id="name" placeholder="닉네임">
-            <button type="button" onclick="btnName();">등록</button>
-        </div>
+        <select id="members">
+            <option value="all" selected>전체</option>
+        </select>
         <input type="text" id="message" placeholder="내용">
         <button type="button" onclick="btnSend();">전송</button>
     </body>
 
     <script>
+        let username = prompt("닉네임을 입력해주세요.");
+
         const socket = io.connect();
 
         let id = "";
@@ -63,8 +64,10 @@
             // id에 소켓 아이디를 저장한다
             id = data;
         })
+
+        socket.emit("info2", {username: username});
         
-        socket.on("entry", function(data) {
+        socket.on("notice", function(data) {
             let container = document.querySelector(".container");
             let div = document.createElement("div");
             div.classList.add("center");
@@ -73,35 +76,55 @@
         })
 
         socket.on("newMSG", function(data) {
-            // data = {id: ~~~, msg: ~~~}
+            // data = {msg: ~~~, to: ~~~, is_dm: ~~~, username: ~~~}
             let container = document.querySelector(".container");
             let div_container = document.createElement("div");
             let div = document.createElement("div");
+            let span = document.createElement("span");
 
-            if (data.id == id) {
+            div.innerText = data.msg;
+
+            if (data.is_dm) {
+                div.textContent = "(DM)" + data.msg;
+            }
+
+            if (data.username == username) {
                 div_container.classList.add("yellow");
             } else {
+                span.textContent = data.username;
+                div_container.appendChild(span);
                 div_container.classList.add("white");
             }
 
-            div.innerText = data.msg;
             div_container.appendChild(div);
             container.appendChild(div_container);
         })
 
-        let nickname = "";
-        function btnName() {
-            let name = document.getElementById("name");
-            let name_box = document.getElementById("name_form");
-            nickname = name.value;
-            socket.emit("name", nickname);
-            name_box.innerHTML = "";
-        }
+        socket.on("members", function(list) {
+            // list = {id : nickname, id : nickname}
+            let members = document.getElementById("members");
+            while (members.firstChild) {
+                members.removeChild(members.lastChild);
+            }
+            let option = document.createElement("option");
+            option.text = "전체";
+            option.value = "total";
+            members.appendChild(option);
+
+            for (let [key, value] of Object.entries(list)) {
+                let option = document.createElement("option");
+                option.text = value;
+                option.value = value;
+                members.appendChild(option);
+            }
+        })
 
         function btnSend() {
             let msg = document.getElementById("message");
+            let member = document.getElementById("members").value;
+            console.log(member);
             // socket.emit("send", {id, msg});
-            socket.emit("send", {id: id, msg: msg.value});
+            socket.emit("send", {msg: msg.value, to: member});
             msg.value = "";
         }
     </script>
