@@ -46,7 +46,7 @@ io.on("connection", function(socket) {
     socket.on("disconnect", function() {
         io.emit("notice", list[socket.id] + "님이 퇴장하셨습니다.");
         delete list[socket.id];
-        // io.emit("members", list);
+        io.emit("members", list);
     })
 })
 

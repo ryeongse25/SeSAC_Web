@@ -1,0 +1,47 @@
+.flex-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.textbox_container {
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 0 15px;
+    background-color: rgb(40, 40, 40);
+    position: absolute;
+    min-width: 300px;
+    bottom: 10px;
+}
+
+.textbox_container div {
+    font-size: 18px;
+    padding: 10px;
+    color: gray;
+}
+
+.textbox_container input {
+    background-color: transparent;
+    border: none;
+    margin: 10px;
+}
+
+.textbox_container input:focus {
+    outline: none;
+    color: white;
+}
+
+.send_btn {
+    background-color: rgb(0, 128, 83);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.send_btn i {
+    color: white;
+    margin: 0 3px;
+    font-size: 12px;
+}
+
+div span {
+    margin: 0 10px;
+}

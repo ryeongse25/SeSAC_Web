@@ -1,0 +1,27 @@
+.nav_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    height: 40px;
+    padding: 0 10px;
+}
+
+.search_box {
+    width: 60%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: rgba(45, 45, 45, 0.8);
+    color: lightgray;
+    font-size: 13px;
+}
+
+.profile_icon {
+    background-color: rgb(255, 102, 0);
+    padding: 2px 4px;
+    border-radius: 5px;
+    color: white;
+}

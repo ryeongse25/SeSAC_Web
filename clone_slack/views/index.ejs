@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Slack | 강의 | SeSAC4_코딩온</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="/index.css">
+        <link rel="stylesheet" href="/nav.css">
+        <link rel="stylesheet" href="/textbox.css">
+    </head>
+
+    <body>
+        <%-include('nav.ejs') %>
+        <div class="container">
+            <div class="left_container">
+                <div>SeSAC4_코딩온</div>
+                <hr>
+                <div id="channel">
+                    <i class="bi bi-caret-down-fill"></i>채널
+                    <p># 자유</p>
+                </div>
+            </div>
+            <div class="right_container">
+                <div class="right_nav">
+                    <div># 자유</div>
+                    <div>세령</div>
+                </div>
+                <hr>
+                <div></div>
+                <%-include('textbox.ejs') %>
+            </div>
+        </div>
+        
+        <script src="/textbox.js"></script>
+    </body>
+</html>
