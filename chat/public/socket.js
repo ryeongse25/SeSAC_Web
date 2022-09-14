@@ -22,6 +22,8 @@ socket.on("newMSG", function(data) {
     if (data.id == id) {
         $(div_container).addClass("my-chat");
     } else {
+        // let img_exists = fs.existsSync('/profile_img/sample.png');
+        // console.log(img_exists);
         // if (data.id != tmp) {
             $(div_container).append('<img src="/profile_img/' + filename + '">');
             $(div_container).append('<span>' + data.nickname + '</span>');
