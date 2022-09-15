@@ -2,10 +2,13 @@
     <head>
         <title>Slack | 강의 | SeSAC4_코딩온</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="/index.css">
-        <link rel="stylesheet" href="/nav.css">
-        <link rel="stylesheet" href="/textbox.css">
-        <link rel="stylesheet" href="/media.css">
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/nav.css">
+        <link rel="stylesheet" href="/css/textbox.css">
+        <link rel="stylesheet" href="/css/media.css">
+        <link rel="stylesheet" href="/css/scroll.css">
+        <link rel="stylesheet" href="/css/chat.css">
+        <script src="/function.js"></script>
         <%-include('script.ejs') %>
     </head>
 
@@ -26,11 +29,81 @@
                     <div>세령</div>
                 </div>
                 <hr>
-                <div class="msg_box"></div>
+                <div class="msg_box">
+                    <div class="inner_msg_box"></div>
+                    <div class="cover_bar"></div>
+                </div>
                 <%-include('textbox.ejs') %>
             </div>
         </div>
-        
-        <script src="/textbox.js"></script>
+        <script>
+            let username = prompt("닉네임을 입력해주세요.");
+
+            const socket = io.connect();
+
+            let id = "";
+            socket.on("info", function(data) {
+                id = data;
+            })
+
+            socket.emit("info2", {username: username});
+
+            socket.on("notice", function(data) {
+                let container = document.querySelector(".inner_msg_box");
+                let div = document.createElement("div");
+                div.classList.add("center");
+                div.innerText = data;
+                container.appendChild(div);
+            })
+
+            socket.on("newMSG", function(data) {
+                let container = document.querySelector(".inner_msg_box");
+                let div_container = document.createElement("div");
+                let div = document.createElement("div");
+                let p = document.createElement("p");
+
+                div.innerText = data.msg;
+
+                // if (data.is_dm) {
+                //     div.textContent = "(DM)" + data.msg;
+                // }
+
+                if (data.username == username) {
+                    div_container.classList.add("yellow");
+                } else {
+                    p.textContent = data.username;
+                    div_container.appendChild(p);
+                    div_container.classList.add("white");
+                }
+
+                div_container.appendChild(div);
+                container.appendChild(div_container);
+            })
+
+            socket.on("members", function(list) {
+                let members = document.getElementById("members");
+                while (members.firstChild) {
+                    members.removeChild(members.lastChild);
+                }
+                let option = document.createElement("option");
+                option.text = "전체";
+                option.value = "total";
+                members.appendChild(option);
+
+                for (let [key, value] of Object.entries(list)) {
+                    let option = document.createElement("option");
+                    option.text = value;
+                    option.value = value;
+                    members.appendChild(option);
+                }
+            })
+
+            function btnSend() {
+                let msg = document.getElementById("message");
+                socket.emit("send", {msg: msg.value});
+                msg.value = "";
+            }
+        </script>
+        <script src="/size.js"></script>
     </body>
 </html>

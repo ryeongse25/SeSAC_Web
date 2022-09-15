@@ -3,13 +3,12 @@ window.onload = function() {
     const right_container = document.querySelector(".right_container");
     const msgbox_container = document.querySelector(".msg_box");
 
-    textbox_container.removeAttribute('style');
-
     $(msgbox_container).css("height", (right_container.offsetHeight - textbox_container.offsetHeight - 125) + "px");
 
-    if ( window.innnerWidth > 500 ) {
+    if ( window.innerWidth > 500 ) {
         $(textbox_container).css("width", (window.innerWidth - 200 - 30) + "px");
     } else {
+        console.log("small");
         $(textbox_container).css("width", (window.innerWidth - 30) + "px");
     }
 }
