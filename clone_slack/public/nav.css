@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
+    background-color: #121016;
     height: 40px;
     padding: 0 10px;
 }
@@ -14,7 +14,7 @@
     text-align: center;
     border: 1px solid gray;
     border-radius: 8px;
-    background-color: rgba(45, 45, 45, 0.8);
+    background-color: #3E3D42;
     color: lightgray;
     font-size: 13px;
 }
