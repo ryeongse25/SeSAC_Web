@@ -49,3 +49,8 @@ hr {
     font-size: 13px;
     margin-right: 5px;
 }
+
+.msg_box {
+    background-color: red;
+    margin: 10px 15px;
+}
