@@ -15,7 +15,7 @@
 
 .inner_msg_box::-webkit-scrollbar {
   /* 스크롤바 너비 조절하는 부분 */
-  width: 10px; 
+  width: 8px; 
 }
 
 .inner_msg_box::-webkit-scrollbar,

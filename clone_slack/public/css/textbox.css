@@ -2,6 +2,11 @@
     display: flex;
     justify-content: space-between;
 }
+
+.flex-box i {
+    margin: 0 4px;
+}
+
 .textbox_container {
     border: 1px solid gray;
     border-radius: 5px;
@@ -10,6 +15,11 @@
     position: absolute;
     min-width: 300px;
     bottom: 10px;
+}
+
+.textbox_container i:hover {
+    color: white;
+    cursor: pointer;
 }
 
 .textbox_container div {
@@ -22,7 +32,8 @@
     background-color: transparent;
     border: none;
     margin: 10px;
-    width: 100%;
+    width: 95%;
+    color: white;
 }
 
 .textbox_container input:focus {

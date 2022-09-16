@@ -8,24 +8,60 @@
         <link rel="stylesheet" href="/css/media.css">
         <link rel="stylesheet" href="/css/scroll.css">
         <link rel="stylesheet" href="/css/chat.css">
+        <link rel="stylesheet" href="/css/profile.css">
+        <link rel="stylesheet" href="/css/common.css">
         <script src="/function.js"></script>
         <%-include('script.ejs') %>
     </head>
 
     <body>
         <%-include('nav.ejs') %>
+        <%-include('profile.ejs') %>
         <div class="container">
             <div class="left_container">
-                <div>SeSAC4_코딩온</div>
+                <div class="roomName">
+                    SeSAC4_코딩온 <i class="bi bi-chevron-down" style="bottom: 5px;"></i>
+                </div>
+                <hr>
+                <div class="menu">
+                    <i class="bi bi-chat-text"></i> 스레드
+                </div>
+                <div class="menu">
+                    <i class="bi bi-chat-text"></i> 다이렉트 메세지
+                </div>
+                <div class="menu">
+                    <i class="bi bi-at"></i> 멘션 및 반응
+                </div>
+                <div class="menu">
+                    <i class="bi bi-bookmark"></i> 저장된 항목
+                </div>
+                <div class="menu">
+                    <i class="bi bi-building"></i> Slack Connect
+                </div>
+                <div class="menu">
+                    <i class="bi bi-three-dots-vertical"></i> 더 보기
+                </div>
                 <hr>
                 <div id="channel">
                     <i class="bi bi-caret-down-fill"></i>채널
+                    <p># 강의</p>
+                    <p># 과제제출</p>
                     <p># 자유</p>
+                </div>
+                <div id="dm">
+                    <div class="reset" style="padding-bottom: 10px;">
+                        <i class="bi bi-caret-down-fill"></i>
+                        다이렉트 메세지
+                    </div>
+                    <div id="members" class="dm_list"></div>
                 </div>
             </div>
             <div class="right_container">
                 <div class="right_nav">
-                    <div># 자유</div>
+                    <div>
+                        # 자유
+                        <i class="bi bi-chevron-down" style="bottom: 5px;"></i>
+                    </div>
                     <div>세령</div>
                 </div>
                 <hr>
@@ -37,6 +73,7 @@
             </div>
         </div>
         <script>
+            let date = new Date();
             let username = prompt("닉네임을 입력해주세요.");
 
             const socket = io.connect();
@@ -48,62 +85,82 @@
 
             socket.emit("info2", {username: username});
 
-            socket.on("notice", function(data) {
-                let container = document.querySelector(".inner_msg_box");
-                let div = document.createElement("div");
-                div.classList.add("center");
-                div.innerText = data;
-                container.appendChild(div);
-            })
+            // socket.on("notice", function(data) {
+            //     let container = document.querySelector(".inner_msg_box");
+            //     let div = document.createElement("div");
+            //     div.classList.add("center");
+            //     div.innerText = data;
+            //     container.appendChild(div);
+            // })
 
             socket.on("newMSG", function(data) {
                 let container = document.querySelector(".inner_msg_box");
                 let div_container = document.createElement("div");
+                let content = document.createElement("div");
                 let div = document.createElement("div");
                 let p = document.createElement("p");
+                let span =  document.createElement("span");
 
+                p.innerText = data.username;
                 div.innerText = data.msg;
+
+                let minute = (date.getMinutes() < 10 ? "0" + date.getMinutes() : "" + date.getMinutes());
+
+                if (date.getHours() > 12) {
+                    span.innerText = "오후 " + (date.getHours() - 12) + ":" + minute;
+                } else if (date.getHours() < 12) {
+                    span.innerText = "오전 " + date.getHours() + ":" + minute;
+                } else {{
+                    span.innerText = "오후 " + date.getHours() + ":" + minute;
+                }}
 
                 // if (data.is_dm) {
                 //     div.textContent = "(DM)" + data.msg;
                 // }
+                
+                content.appendChild(p);
+                content.appendChild(span);
+                content.appendChild(div);
+                
+                p.classList.add("inline-block");
+                div_container.classList.add("msg_flex");
+                $(div_container).append("<img src='/profile_img/sample.png'>");
+                div_container.appendChild(content);
 
-                if (data.username == username) {
-                    div_container.classList.add("yellow");
-                } else {
-                    p.textContent = data.username;
-                    div_container.appendChild(p);
-                    div_container.classList.add("white");
-                }
-
-                div_container.appendChild(div);
                 container.appendChild(div_container);
             })
 
             socket.on("members", function(list) {
+                console.log(list);
                 let members = document.getElementById("members");
+
                 while (members.firstChild) {
                     members.removeChild(members.lastChild);
                 }
-                let option = document.createElement("option");
-                option.text = "전체";
-                option.value = "total";
-                members.appendChild(option);
 
                 for (let [key, value] of Object.entries(list)) {
-                    let option = document.createElement("option");
-                    option.text = value;
-                    option.value = value;
-                    members.appendChild(option);
+                    let dm_list = document.createElement("div");
+                    dm_list.classList.add("dm_list");
+
+                    let span = document.createElement("span");
+                    span.innerText = value;
+
+                    $(dm_list).append("<img src='/profile_img/sample.png'>");
+                    dm_list.appendChild(span);
+
+                    members.appendChild(dm_list);
                 }
             })
 
             function btnSend() {
                 let msg = document.getElementById("message");
+
+                if (msg.value == "") {return false;}
+
                 socket.emit("send", {msg: msg.value});
                 msg.value = "";
             }
         </script>
-        <script src="/size.js"></script>
+        <script src="/show.js"></script>
     </body>
 </html>

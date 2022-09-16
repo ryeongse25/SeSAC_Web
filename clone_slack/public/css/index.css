@@ -11,14 +11,35 @@ body {
     height: 100%;
 }
 
+.container .bi-chevron-down {
+    font-size: 10px;
+    position: relative;
+    -webkit-text-stroke: 1px;
+}
+
 .left_container {
     background-color: #19171D;
+    border-right: 0.1px solid rgb(59, 59, 59);
 }
 
 .left_container div {
-    font-size: 18px;
     margin: 15px 0 0 0;
     padding-left: 15px;
+    cursor: pointer;
+}
+
+.roomName {
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.menu {
+    font-size: 15px;
+    color: gray;
+}
+
+.menu i {
+    margin-right: 4px;
 }
 
 .right_container {
@@ -33,23 +54,59 @@ body {
 
 .right_nav div {
     font-size: 18px;
+    font-weight: bolder;
     margin: 15px 0 0 0;
 }
 
 hr {
     margin-top: 15px;
-    border: 0.5px solid gray;
+    border: 0.1px solid rgb(59, 59, 59);
 }
 
 #channel {
     font-size: 15px;
+    color: gray;
 }
 
-#channel i {
+#channel p {
+    font-size: 15px;
+    color: gray;
+}
+
+.bi-caret-down-fill {
     font-size: 13px;
-    margin-right: 5px;
+    margin-right: 8px;
+}
+
+#dm {
+    font-size: 15px;
+    color: gray;
+}
+
+#dm img {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin-top: 2px;
+}
+
+.dm_list {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.dm_list span {
+    position: relative;
+    bottom: 7px;
+    right: 5px;
 }
 
 .msg_box {
     margin: 10px 15px;
+}
+
+.reset {
+    margin: 0 !important;
+    padding: 0 0 10px 0 !important;
 }

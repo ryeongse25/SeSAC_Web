@@ -21,8 +21,8 @@ io.on("connection", function(socket) {
 
     socket.on("info2", function(data) {
         list[socket.id] = data.username;
-        // io.emit("members", list);
-        io.emit("notice", data.username + "님이 입장하셨습니다.");
+        io.emit("members", list);
+        // io.emit("notice", data.username + "님이 입장하셨습니다.");
     })
 
     socket.on("send", function(data) {
@@ -40,9 +40,9 @@ io.on("connection", function(socket) {
     })
 
     socket.on("disconnect", function() {
-        io.emit("notice", list[socket.id] + "님이 퇴장하셨습니다.");
+        // io.emit("notice", list[socket.id] + "님이 퇴장하셨습니다.");
         delete list[socket.id];
-        // io.emit("members", list);
+        io.emit("members", list);
     })
 })
 

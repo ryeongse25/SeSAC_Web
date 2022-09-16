@@ -1,31 +1,23 @@
-.inner_msg_box div div {
-    padding: 5px 10px;
-    margin-bottom: 10px;
-    display: inline-block;
+.msg_flex {
+    display: flex;
+    margin-bottom: 15px;
 }
-.white div {
-    background-color: white;
-    position: relative;
+
+.msg_flex img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin-right: 10px;
 }
-.white div:after {
-content: '';
-position: absolute;
-left: 0;
-top: 50%;
-width: 0;
-height: 0;
-border: 0.4em solid transparent;
-border-right-color: white;
-border-left: 0;
-margin-top: -0.4em;
-margin-left: -0.4em;
+
+.msg_flex p {
+    font-weight: bolder;
+    margin: 0;
 }
-.yellow {
-    text-align: right;
-}
-.yellow div {
-    background-color: yellow;
-}
-.center {
-    text-align: center;
+
+.msg_flex span {
+    font-size: 13px;
+    color: gray;
+    margin-left: 10px;
 }

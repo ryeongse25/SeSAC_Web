@@ -5,6 +5,7 @@
     background-color: #121016;
     height: 40px;
     padding: 0 10px;
+    border-bottom: 0.1px solid rgb(59, 59, 59);;
 }
 
 .search_box {
@@ -12,7 +13,7 @@
     height: 25px;
     line-height: 25px;
     text-align: center;
-    border: 1px solid gray;
+    border: 1px solid rgb(80, 80, 80);
     border-radius: 8px;
     background-color: #3E3D42;
     color: lightgray;
@@ -24,4 +25,5 @@
     padding: 2px 4px;
     border-radius: 5px;
     color: white;
+    cursor: pointer;
 }
