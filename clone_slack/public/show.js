@@ -1,4 +1,7 @@
 window.onload = function() {
+    // 화면 로딩 시 메세지 박스에 커서 위치 시키기
+    $("#message").focus();
+    
     const textbox_container = document.querySelector(".textbox_container");
     const right_container = document.querySelector(".right_container");
     const msgbox_container = document.querySelector(".msg_box");
@@ -11,6 +14,11 @@ window.onload = function() {
         console.log("small");
         $(textbox_container).css("width", (window.innerWidth - 30) + "px");
     }
+
+    // 프로필에 username 입력하기
+    $("#username").text(username);
+    $("#h_input_username").val(username);
+    $(".profile_icon").text(username);
 }
 
 window.onresize = function() {

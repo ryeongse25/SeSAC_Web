@@ -1,8 +1,12 @@
 <div class="profile hide">
     <div class="profile_header">
-        <img src="/profile_img/sample.png">
+        <label for="upload_profile_img">
+            <img src="/profile_img/sample.png">
+        </label>
+        <input id="h_input_username" type="text" hidden>
+        <input type="file" id="upload_profile_img" name="userfile" hidden>
         <div>
-            <h5>SeSAC4_김세령</h5>
+            <h5 id="username"></h5>
         </div>
     </div>
     <div class="status"><i class="bi bi-pencil"></i></div>

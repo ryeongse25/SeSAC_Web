@@ -19,6 +19,7 @@
     margin: 0 10px 10px 0;
     border: 0.1px solid rgb(70, 70, 70);
     border-radius: 8px;
+    cursor: pointer;
 }
 
 h5 {

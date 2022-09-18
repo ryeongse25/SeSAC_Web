@@ -15,12 +15,14 @@
     <input type="text" id="message" placeholder="#자유에 메시지 보내기" onkeyup="pressEnter();">
     <div class="flex-box">
         <div>
-            <i class="bi bi-plus-circle-fill" style="margin: 0;"></i>
+            <label for="">
+                <i class="bi bi-plus-circle-fill" style="margin: 0;"></i>
+            </label>
             <span>|</span>
             <i class="bi bi-camera-video"></i>
             <i class="bi bi-mic"></i>
             <span>|</span>
-            <i class="bi bi-emoji-smile"></i>
+            <i id="emoji_btn" class="bi bi-emoji-smile"></i>
             <i class="bi bi-at"></i>
         </div>
         <div class="send_btn" onclick="btnSend();">
@@ -30,3 +32,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    const button = document.querySelector("#emoji_btn");
+    const picker = new EmojiButton({
+        position: 'bottom-start'
+    });
+
+    button.addEventListener('click', () => {
+        picker.togglePicker(button);
+    });
+    
+    picker.on('emoji', emoji => {
+        const text_box = document.querySelector('#message');
+        text_box.value += emoji;
+    });
+</script>
