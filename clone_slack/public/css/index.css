@@ -28,6 +28,10 @@ body {
     cursor: pointer;
 }
 
+.menu:hover {
+    color: white;
+}
+
 .roomName {
     font-size: 18px;
     font-weight: bolder;
@@ -68,9 +72,22 @@ hr {
     color: gray;
 }
 
+#channel .dropdown {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 #channel p {
     font-size: 15px;
     color: gray;
+}
+
+#channels {
+    padding: 0;
+}
+
+#channel p:hover {
+    color: white;
 }
 
 .bi-caret-down-fill {
@@ -98,8 +115,13 @@ hr {
 
 .dm_list span {
     position: relative;
-    bottom: 7px;
+    bottom: 8px;
     right: 5px;
+    margin: 0 10px;
+}
+
+.dm_list:hover {
+    color: white;
 }
 
 .msg_box {
@@ -109,4 +131,8 @@ hr {
 .reset {
     margin: 0 !important;
     padding: 0 0 10px 0 !important;
+}
+
+.dropdown:hover {
+    color: white;
 }

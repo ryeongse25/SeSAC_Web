@@ -22,7 +22,7 @@ io.on("connection", function(socket) {
     socket.on("info2", function(data) {
         list[socket.id] = data.username;
         io.emit("members", list);
-        // io.emit("notice", data.username + "님이 입장하셨습니다.");
+        io.emit("notice", data.username);
     })
 
     socket.on("send", function(data) {

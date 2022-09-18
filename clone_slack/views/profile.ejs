@@ -1,10 +1,10 @@
 <div class="profile hide">
-    <div class="profile_header">
+    <div class="profile_header d-flex">
         <label for="upload_profile_img">
             <img src="/profile_img/sample.png">
         </label>
         <input id="h_input_username" type="text" hidden>
-        <input type="file" id="upload_profile_img" name="userfile" hidden>
+        <input type="file" id="upload_profile_img" name="userfile" hidden onchange="imgPreview();">
         <div>
             <h5 id="username"></h5>
         </div>
@@ -17,5 +17,5 @@
     <p>프로필</p>
     <p>환경설정</p>
     <hr>
-    <p>SeSAC4_코딩온에서 로그아웃</p>
+    <p style="margin-bottom: 0;">SeSAC4_코딩온에서 로그아웃</p>
 </div>

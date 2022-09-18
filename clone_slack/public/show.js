@@ -18,7 +18,6 @@ window.onload = function() {
     // 프로필에 username 입력하기
     $("#username").text(username);
     $("#h_input_username").val(username);
-    $(".profile_icon").text(username);
 }
 
 window.onresize = function() {

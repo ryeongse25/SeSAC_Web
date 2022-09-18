@@ -21,9 +21,13 @@
 }
 
 .profile_icon {
-    background-color: rgb(255, 102, 0);
     padding: 2px 4px;
-    border-radius: 5px;
-    color: white;
     cursor: pointer;
+}
+
+.profile_icon img {
+    width: 30px;
+    height: 30px;
+    border: 0.1px solid rgb(70, 70, 70);
+    border-radius: 8px;
 }

@@ -5,3 +5,11 @@
 .inline-block {
     display: inline-block;
 }
+
+.d-flex {
+    display: flex;
+}
+
+.turnRight {
+    transform: rotate( 90deg );
+}
