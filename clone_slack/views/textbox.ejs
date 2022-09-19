@@ -12,7 +12,7 @@
         <span>|</span>
         <i class="bi bi-code-slash"></i>
     </div>
-    <textarea id="message" rows="3" placeholder="#자유에 메시지 보내기" onkeyup="pressEnter();"></textarea>
+    <textarea id="message" rows="3" placeholder="#자유에 메시지 보내기" onkeydown="pressEnter();"></textarea>
     <div class="flex-box">
         <div class="icons">
             <label for="send_file">
@@ -47,5 +47,8 @@
     picker.on('emoji', emoji => {
         const text_box = document.querySelector('#message');
         text_box.value += emoji;
+        setTimeout(function(){
+            text_box.focus();
+        }, 1000);
     });
 </script>

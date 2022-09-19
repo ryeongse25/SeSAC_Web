@@ -160,6 +160,9 @@
                 div_container.appendChild(content);
 
                 container.appendChild(div_container);
+
+                const top = $('.inner_msg_box').prop('scrollHeight');
+                $('.inner_msg_box').scrollTop(top);
             })
 
             socket.on("members", function(list) {
@@ -188,7 +191,6 @@
                 let msg = document.getElementById("message");
 
                 if (msg.value == "\n") {return false;}
-
                 socket.emit("send", {msg: msg.value});
                 msg.value = "";
             }

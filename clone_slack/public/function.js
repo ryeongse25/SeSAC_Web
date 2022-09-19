@@ -1,8 +1,8 @@
 function pressEnter() {
+    let msg = document.getElementById("message");
     if (window.event.keyCode == 13) {
-        if (!window.event.shiftKey) {
-            btnSend();
-        }
+        if ( msg.value == "" ) { window.event.preventDefault(); return false; }
+        if ( !window.event.shiftKey ) { btnSend(); window.event.preventDefault(); }
     }
 }
 
