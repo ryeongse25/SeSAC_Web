@@ -1,0 +1,56 @@
+div {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+#face {
+    background-color: #00a1f7;
+    position: relative;
+}
+
+#white_eye {
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+}
+
+#black_eye {
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 25px;
+    top: 25px;
+}
+
+#body1 {
+    background-color: #0570f2;
+    position: relative;
+    top: -60px;
+    left: 70px;
+}
+
+#body2 {
+    background-color: #021aed;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+}
+
+#body3 {
+    background-color: #95a0fc;
+    position: absolute;
+    left: 90px;
+    top: 39px;
+}
+
+#body4 {
+    background-color: #0ba5b5;
+    position: absolute;
+    left: 160px;
+    top: 38px;
+}
