@@ -1,0 +1,28 @@
+input[name="name"] {
+    margin-right: 20px;
+}
+
+input[name="title"] {
+    margin-right: 20px;
+} 
+
+input[name="search"] {
+    width: 300px;
+    margin: 0 20px;
+}
+
+table {
+    margin-top: 30px;
+}
+
+th {
+    width: 150px;
+}
+
+p {
+    margin-top: 30px;
+}
+
+#s_table {
+    margin: 0;
+}
