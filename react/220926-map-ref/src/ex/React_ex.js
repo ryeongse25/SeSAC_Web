@@ -15,7 +15,7 @@ function React_ex() {
         let title = form.title.value;
 
         let dict = {};
-        
+
         dict["title"] = title;
         dict["name"] = name;
 
@@ -33,11 +33,11 @@ function React_ex() {
 
         if (s_option == "name") {
             newList = list.filter((dict) => {
-                return dict.name.includes(s_word)
+                return dict[s_option].includes(s_word)
             });
         } else {
             newList = list.filter((dict) => {
-                return dict.title.includes(s_word)
+                return dict[s_option].includes(s_word)
             });
         }
 

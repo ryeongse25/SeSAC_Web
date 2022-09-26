@@ -37,11 +37,11 @@ class ReactClass extends Component {
 
         if (s_option == "name") {
             newList = this.state.list.filter((dict) => {
-                return dict.name.includes(s_word)
+                return dict[s_option].includes(s_word)
             });
         } else {
             newList = this.state.list.filter((dict) => {
-                return dict.title.includes(s_word)
+                return dict[s_option].includes(s_word)
             });
         }
 
