@@ -8,10 +8,16 @@ function SearchTable(props) {
                     <th>작성자</th>
                 </tr>
             </thead>
-            {props.s_list.map((dict) => {
-                return <tbody>
-                            <tr><td>{dict.index}</td><td>{dict.title}</td><td>{dict.name}</td></tr>
-                        </tbody>
+            {props.s_list.map((dict, i) => {
+                return (
+                    <tbody>
+                        <tr>
+                            <td>{i+1}</td>
+                            <td>{dict.title}</td>
+                            <td>{dict.name}</td>
+                        </tr>
+                    </tbody>
+                )
             })}
         </table>
     )

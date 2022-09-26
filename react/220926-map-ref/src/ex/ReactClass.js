@@ -17,11 +17,9 @@ class ReactClass extends Component {
         let form = document.getElementById("form");
         let name = form.name.value;
         let title = form.title.value;
-        let index= this.state.list.length + 1;
 
         let dict = {};
 
-        dict["index"] = index;
         dict["title"] = title;
         dict["name"] = name;
 

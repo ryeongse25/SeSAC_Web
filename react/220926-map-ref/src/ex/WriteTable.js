@@ -9,8 +9,14 @@ function WriteTable(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.list.map((dict) => {
-                    return <tr><td>{dict.index}</td><td>{dict.title}</td><td>{dict.name}</td></tr>
+                {props.list.map((dict, i) => {
+                    return (
+                        <tr>
+                            <td>{i+1}</td>
+                            <td>{dict.title}</td>
+                            <td>{dict.name}</td>
+                        </tr>
+                    )
                 })}
             </tbody>
         </table>
