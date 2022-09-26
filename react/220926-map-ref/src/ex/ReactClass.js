@@ -33,17 +33,9 @@ class ReactClass extends Component {
         let s_word = form.search.value;
         let s_option = form.s_box.value;
 
-        let newList = []
-
-        if (s_option == "name") {
-            newList = this.state.list.filter((dict) => {
-                return dict[s_option].includes(s_word)
-            });
-        } else {
-            newList = this.state.list.filter((dict) => {
-                return dict[s_option].includes(s_word)
-            });
-        }
+        let newList = this.state.list.filter((dict) => {
+            return dict[s_option].includes(s_word)
+        });
 
         this.setState({s_list : newList});
     }
