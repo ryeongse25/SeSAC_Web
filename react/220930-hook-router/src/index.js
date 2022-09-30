@@ -9,6 +9,9 @@ import CSSModule from './6CSSModule';
 import StyledComponent from './7StyledComponent';
 import Worm from './Worm';
 import Circle from './Circle';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Reactstrap from './Reactstrap';
+import Slide from './Carousel';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,5 +31,7 @@ root.render(
     <hr />
     <Worm />
     <Circle />
+    <Reactstrap />
+    <Slide />
   </React.StrictMode>
 );
