@@ -1,0 +1,29 @@
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+.container {
+    display: flex;
+    background-color: beige;
+}
+
+.containers {
+    background-color: beige;
+}
+
+p {
+    font-weight: bold;
+}
+
+span {
+    color: green;
+}
+
+.name {
+    color: red;
+}
