@@ -44,7 +44,9 @@ exports.postLogin = async (req, res) => {
     let hashedPassword = verifyPassword(req.body.pw, salt_result.salt);
     console.log("hP", hashedPassword)
 
-    if ( salt_result.password === hashedPassword ) console.log( '로그인 성공' );
-    console.log("로그인 결과", salt_result);
-    res.send("로그인 성공");
+    if ( salt_result.password === hashedPassword ) {
+        res.send("로그인 성공");
+    } else {
+        res.send("로그인 실패");
+    }
 }
