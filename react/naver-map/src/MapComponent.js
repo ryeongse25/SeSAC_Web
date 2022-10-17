@@ -1,11 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
 const { naver } = window;
 
+// import img from './heart-maker.png';
+
 function MapComponent() {
-    const [myLocation, setMyLocation] = useState([{latitude: "number", longitude: "number"}]);
+
+    const [myLocation, setMyLocation] = useState({latitude: 37.3724620, longitude: 127.1051714});
     const container = useRef();
 
-    const initMap = async () => {
+    const initMap = () => {
         // 현재 위치 가져오기
 
         // 현재 발생되고 있는 오류
@@ -44,12 +47,12 @@ function MapComponent() {
         const markerOptions = {
             position: mapOption.center,
             map,
-            // icon: {
-            //     content: "<img src=./heart-marker.png />",
-            //     size: new naver.maps.Size(50, 52),
-            //     origin: new naver.maps.Point(0, 0),
-            //     anchor: new naver.maps.Point(25, 26),
-            // }
+            icon: {
+                content: `<img src=${require('./public/heart-maker.png')} />`,
+                size: new naver.maps.Size(50, 52),
+                origin: new naver.maps.Point(0, 0),
+                anchor: new naver.maps.Point(25, 26),
+            }
             // animation: naver.maps.Animation.DROP
         }
 
