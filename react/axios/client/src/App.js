@@ -22,7 +22,9 @@ function App() {
         // });
     }
 
-    useEffect(() => { fetchData(); }, []);
+    useEffect(() => { 
+        fetchData(); 
+    }, []);
 
     const onSubmitHandler = async (e) => {
         console.log(form.current);
@@ -31,6 +33,7 @@ function App() {
 
         await axios.post(SERVER_URL, {text, done});
         fetchData();
+        // fetchData()를 다시 실행시키는 대신 지금까지 했던 것 처럼 포스트 결과를 받아와서 띄워줘도 된다.
 
         // fetch(SERVER_URL, {
         //     method: 'POST',
