@@ -19,8 +19,13 @@ app.get("/", function(req, res) {
     res.send("Hello World!");
 });
 
+app.get("/id", function(req, res) {
+    console.log(req.query);
+    res.send(req.query);
+});
+
 app.get("/api/todo", function(req, res) {
-    res.json(todoList);
+    res.send(todoList);
 })
 
 app.post("/api/todo", function(req, res) {
@@ -31,7 +36,7 @@ app.post("/api/todo", function(req, res) {
         text,
         done
     })
-    return res.send('success');
+    res.send('success');
 })
 
 app.listen(port, () => {

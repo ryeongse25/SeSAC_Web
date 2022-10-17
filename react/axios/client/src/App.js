@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import axios from 'axios';
 // fetch 기본 api
 // axios 라이브러리 설치
@@ -8,6 +8,7 @@ const SERVER_URL = 'http://localhost:8080/api/todo';
 function App() {
 
     const [todoList, setTodoList] = useState([]);
+    const form = useRef();
 
     const fetchData = async () => {
         const response = await axios.get(SERVER_URL);
@@ -24,9 +25,9 @@ function App() {
     useEffect(() => { fetchData(); }, []);
 
     const onSubmitHandler = async (e) => {
-        e.preventDefault();
-        const text = e.target.text.value;
-        const done = e.target.done.checked;
+        console.log(form.current);
+        const text = form.current.text.value;
+        const done = form.current.done.checked;
 
         await axios.post(SERVER_URL, {text, done});
         fetchData();
@@ -47,10 +48,14 @@ function App() {
     return (
         <div className="App">
             <h1>TODO LIST</h1>
-            <form onSubmit={onSubmitHandler}>
+            <form ref={form}>
                 <input name="text" type="text"/>
                 <input name="done" type="checkbox" />
-                <input type="submit" value="추가" />
+                <button type="button" onClick={onSubmitHandler}>추가</button>
+            </form>
+            <form action="http://localhost:8080/id" method="GET">
+                <input name="id" type="text" />
+                <button type="submit">아이디 보내기</button>
             </form>
             {todoList.map((todo) => {
                 return(
