@@ -13,7 +13,7 @@ public class Main {
 		ArrayList<Rectangle> rectArray = new ArrayList<>();
 		Scanner scanner = new Scanner(System.in);
 		
-		int i = 1;
+		// int i = 1;
 		
 		while(true) {
 			
@@ -30,7 +30,9 @@ public class Main {
 			
 			rectArray.add(rectangle);
 			
-			Rectangle.setCount(i++);
+			// Rectangle.setCount(i++);
+			// Rectangle.setCount(rectArray.size());
+		
 		}
 		
 //		for(int i=0; i<rectArray.size(); i++) {

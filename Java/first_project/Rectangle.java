@@ -4,7 +4,7 @@ public class Rectangle {
 	
 	private int width;
 	private int height;
-	private static int count = 0;
+	private static int COUNT = 0;
 	
 	// static으로 선언하면 객체별로 생성되지 않고, 클래스별로 메모리가 할당되어서 생성된다.
 	private static double pi = 3.14;
@@ -18,6 +18,7 @@ public class Rectangle {
 	}
 	
 	public Rectangle(int width) {
+		COUNT++;
 		this.width = width;
 	}
 	
@@ -32,7 +33,7 @@ public class Rectangle {
 	}
 	
 	public static int getCount() {
-		return count;
+		return COUNT;
 	}
 	
 	public static double getPi() {
@@ -48,9 +49,9 @@ public class Rectangle {
 		this.height = height;
 	}
 	
-	public static void setCount(int num) {
-		count = num;
-	}
+//	public static void setCount(int num) {
+//		COUNT = num;
+//	}
 	
 	public int area() {
 		return width * height;
