@@ -5,7 +5,26 @@
         <title>Title</title>
     </head>
     <body>
-        <!-- th뒤 text: 태그 안에 글자를 적는다 -->
-        <h1 th:text="${text}">hello</h1>
+        <p th:text="${text}">hello</p>
+        <p th:utext="${utext}">hello</p>
+        <input type="text" th:value="${text}">
+        <div th:with="temp=${text}" th:text="${temp}"></div>
+        <div th:switch="${text}">
+            <p th:case="hi">hi</p>
+            <p th:case="hello">hello</p>
+            <p th:case="*">other</p>
+        </div>
+        <p th:if="${text}=='web'" th:text="${text}"></p>
+        <p th:unless="${text}=='web'" th:text="'web이 아님'"></p>
+
+        <ul>
+            <!-- name : names 리스트를 돌면서 요소 하나씩이 들어간다 -->
+            <li th:each="name:${names}" th:text="${name}"></li>
+        </ul>
+
+<!--        <p th:if="${age}<20" th:text="'10세는 미성년자입니다.'">20세 이하</p>-->
+<!--        <p th:unless="${age}<20" th:text="'20세는 성인입니다.'">20세 이상</p>-->
+        <p th:if="${age} <20" th:text="${age} + '는 미성년자입니다.'"></p>
+        <p th:unless="${age} <20" th:text="${age} + '는 성인입니다.'"></p>
     </body>
 </html>
