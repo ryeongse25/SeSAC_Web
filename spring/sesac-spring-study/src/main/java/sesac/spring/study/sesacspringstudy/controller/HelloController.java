@@ -6,37 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import sesac.spring.study.sesacspringstudy.dto.PersonDTO;
 
 import java.util.ArrayList;
 
 // 해당 클래스가 Controller 클래스라는 것을 알려준다
 @Controller
 public class HelloController {
-    public class Person {
 
-        private String name;
-        private int age;
-
-        public String getName() {
-            return name;
-        }
-
-        public int getAge() {
-            return age;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public void setAge(int age) {
-            this.age = age;
-        }
-    }
     // hi url로 get 요청이 들어오면 아래 함수 실행
     @GetMapping("hi")
     public String getHi(Model model) {
-        // hi.html로 text = "hihihi" 보내기
+        // hi.html에 text = "hihihi" & utext = "<strong>utext</strong>" 보내기
         model.addAttribute("text", "hihihi");
         model.addAttribute("utext", "<strong>utext</strong>");
 
@@ -53,21 +34,21 @@ public class HelloController {
     @GetMapping("people")
     public String getPeople(Model model) {
         // practice 2
-        ArrayList<Person> arrayList = new ArrayList<>();
+        ArrayList<PersonDTO> arrayList = new ArrayList<>();
 
-        Person kim = new Person();
+        PersonDTO kim = new PersonDTO();
         kim.setName("김세령");
         kim.setAge(20);
 
-        Person lee = new Person();
+        PersonDTO lee = new PersonDTO();
         lee.setName("이세령");
         lee.setAge(21);
 
-        Person hong = new Person();
+        PersonDTO hong = new PersonDTO();
         hong.setName("홍세령");
         hong.setAge(22);
 
-        Person park = new Person();
+        PersonDTO park = new PersonDTO();
         park.setName("박세령");
         park.setAge(23);
 
@@ -77,7 +58,6 @@ public class HelloController {
         arrayList.add(park);
 
         model.addAttribute("arrayList", arrayList);
-
         return "people";
     }
 
@@ -106,7 +86,4 @@ public class HelloController {
         model.addAttribute("age", age);
         return "api";
     }
-
-
-
 }

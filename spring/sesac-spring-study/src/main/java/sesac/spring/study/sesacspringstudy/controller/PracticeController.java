@@ -2,53 +2,56 @@ package sesac.spring.study.sesacspringstudy.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import sesac.spring.study.sesacspringstudy.dto.PracticeDTO;
 
 import java.util.ArrayList;
 
 @Controller
 public class PracticeController {
 
-    ArrayList<Integer> years = new ArrayList<>();
-    ArrayList<Integer> month = new ArrayList<>();
-    ArrayList<Integer> days = new ArrayList<>();
+//    ArrayList<Integer> years = new ArrayList<>();
+//    ArrayList<Integer> month = new ArrayList<>();
+//    ArrayList<Integer> days = new ArrayList<>();
 
+    // "form"으로 get 요청이 왔을 때 form.html을 띄워준다.
     @GetMapping("form")
     public String getForm(Model model) {
 
-        for(int i=1950; i<2023; i++) {
-            years.add(i);
-        }
+//        for(int i=1950; i<2023; i++) { years.add(i); }
+//        for(int i=1; i<13; i++) { month.add(i); }
+//        for(int i=1; i<32; i++) { days.add(i); }
 
-        for(int i=1; i<13; i++) {
-            month.add(i);
-        }
-
-        for(int i=1; i<32; i++) {
-            days.add(i);
-        }
-
-        model.addAttribute("years", years);
-        model.addAttribute("month", month);
-        model.addAttribute("days", days);
+//        model.addAttribute("years", years);
+//        model.addAttribute("month", month);
+//        model.addAttribute("days", days);
 
         return "form";
     }
 
-    // 안 돌아감!!
+    // 일반 폼 전송 - DTO
     @PostMapping("postForm")
-    @ResponseBody
-    public String postForm(@RequestParam String name, @RequestParam String sex, @RequestParam int year, @RequestParam int month, @RequestParam int day, @RequestParam String interest,  Model model) {
-        model.addAttribute("name", name);
-        model.addAttribute("sex", sex);
-        model.addAttribute("year", year);
-        model.addAttribute("month", month);
-        model.addAttribute("day", day);
-        model.addAttribute("interest", interest);
-        return name + " 님 환영합니다.";
+    public String postForm(PracticeDTO practiceDTO, Model model) {
+        model.addAttribute("name", practiceDTO.getName());
+        model.addAttribute("sex", practiceDTO.getSex());
+        model.addAttribute("year", practiceDTO.getYear());
+        model.addAttribute("month", practiceDTO.getMonth());
+        model.addAttribute("day", practiceDTO.getDay());
+        model.addAttribute("interest", practiceDTO.getInterest());
+        return "result";
+    }
+
+    // 동적 폼 전송 - DTO
+    @PostMapping("axiosForm")
+    @ResponseBody // 를 쓰면 return이 res.send 처럼 동작한다
+    public String axiosForm(@RequestBody PracticeDTO practiceDTO, Model model) {
+        model.addAttribute("name", practiceDTO.getName());
+        model.addAttribute("sex", practiceDTO.getSex());
+        model.addAttribute("year", practiceDTO.getYear());
+        model.addAttribute("month", practiceDTO.getMonth());
+        model.addAttribute("day", practiceDTO.getDay());
+        model.addAttribute("interest", practiceDTO.getInterest());
+        return practiceDTO.getName() + "님 환영합니다!";
     }
 
 }

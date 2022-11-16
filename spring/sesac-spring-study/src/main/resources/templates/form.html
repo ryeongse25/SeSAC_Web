@@ -6,29 +6,23 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
-        const LOCALHOST = "http://localhost:8080";
-
         async function sendForm() {
             const form = document.getElementById("form");
-            console.log(form);
-            let result = await axios({
-                method: "post",
-                url: LOCALHOST + "/postForm",
-                data: {
+
+            let result = await axios.post("/axiosForm", {
                     name: form.name.value,
                     sex: form.sex.value,
                     year: form.year.value,
                     month: form.month.value,
                     day: form.day.value,
                     interest: form.interest.value
-                }
             });
             alert(result.data);
         }
     </script>
 </head>
 <body>
-    <h5>폼 전송 - 실습</h5>
+    <h5>DTO 폼 전송</h5>
     <form id="form" action="postForm" method="post">
         <fieldset>
             이름 <input type="text" name="name"> <br>
@@ -37,20 +31,24 @@
             <input type="radio" name="sex" value="여자">여자 <br>
             생년월일
             <select name="year">
-                <option th:each="year:${years}" th:value="${year}" th:text="${year}"></option>
+                <!-- <option th:each="year:${years}" th:value="${year}" th:text="${year}"></option> -->
+                <option th:each="num: ${#numbers.sequence(1950, 2023)}" th:text="${num}"></option>
             </select> 년
             <select name="month">
-                <option th:each="month:${month}" th:value="${month}" th:text="${month}"></option>
+                <!-- <option th:each="month:${month}" th:value="${month}" th:text="${month}"></option>-->
+                <option th:each="num: ${#numbers.sequence(1, 12)}" th:text="${num}"></option>
             </select> 월
             <select name="day">
-                <option th:each="day:${days}" th:value="${day}" th:text="${day}"></option>
+                <!-- <option th:each="day:${days}" th:value="${day}" th:text="${day}"></option>-->
+                <option th:each="num: ${#numbers.sequence(1, 31)}" th:text="${num}"></option>
             </select> 일 <br>
             관심사
             <input type="checkbox" name="interest" value="여행"> 여행
             <input type="checkbox" name="interest" value="패션"> 패션
             <input type="checkbox" name="interest" value="음식"> 음식
         </fieldset>
-        <button type="button" onClick="sendForm()">회원가입</button>
+        <button>일반 폼 전송 - DTO</button>
+        <button type="button" onClick="sendForm()">동적 폼 전송 - DTO</button>
     </form>
 </body>
 </html>
