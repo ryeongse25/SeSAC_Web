@@ -33,7 +33,6 @@ public class JPARepository implements BoardRepository{
     @Override
     public List<Board> findAll() {
         // Select * from board as b;
-        return em.createQuery("select b from Board b", Board.class)
-                .getResultList();
+        return em.createQuery("select b from Board b", Board.class).getResultList();
     }
 }
