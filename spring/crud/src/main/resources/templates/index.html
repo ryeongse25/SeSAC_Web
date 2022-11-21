@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>CRUD</title>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    async function writeForm() {
+        const form = document.getElementById("writeForm");
+        const response = await axios.post("/write", {name: form.name.value, content: form.content.value});
+        console.log(response.data);
+        location.reload();
+    }
+
+    async function deleteForm(obj){
+        let tr = obj.parentNode.parentNode;
+        let id = tr.children[0];
+        const response = await axios.delete("/delete/" + id.value);
+        alert(response.data);
+        location.reload();
+    }
+
+    function edit1(obj) {
+         let tr = obj.parentNode.parentNode;
+         let id = tr.children[0].value;
+         let name = tr.children[2].innerText;
+         let content = tr.children[3].innerText;
+
+         const form = document.getElementById("writeForm");
+         form.name.value = name;
+         form.content.value = content;
+
+         const box = document.getElementById("btn_box");
+         box.innerHTML = '<button type="button" onClick="edit2(' + id + ')">수정</button><button type="button" onClick="location.reload()">취소</button>';
+    }
+
+    async function edit2(id) {
+        const form = document.getElementById("writeForm");
+        const response = await axios.put("/edit", {id: id, name: form.name.value, content: form.content.value});
+        console.log(response.data);
+        location.reload();
+    }
+
+</script>
+</head>
+
+<body>
+    <h3>Write your Comment</h3>
+
+    <form id="writeForm">
+        <input type="text" name="name" /> <br>
+        <input type="text" name="content" /> <br>
+        <div id="btn_box">
+            <button type="button" onClick="writeForm();">작성</button>
+        </div>
+    </form>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <th>id</th>
+            <th>이름</th>
+            <th>방명록</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </tr>
+        <tr th:each="item:${list}">
+            <input type="hidden" th:value="${item.ID}">
+            <td th:text="${item.ID}">id</td>
+            <td th:text="${item.name}">이름</td>
+            <td th:text="${item.content}">내용</td>
+            <td><button type="button" onClick="edit1(this)">수정</button></td>
+            <td><button type="button" onClick="deleteForm(this)">삭제</button></td>
+        </tr>
+    </table>
+</body>
+</html>
