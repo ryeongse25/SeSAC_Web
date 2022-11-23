@@ -8,28 +8,33 @@
 
     <script>
         function upload() {
-            let fileInput = document.querySelector("input[name=uploadFile]");
+            let fileInput = document.querySelector("input[name=uploadFile2]");
             let fileObj = fileInput.files[0];
 
             let formData = new FormData();
 
-            formData.append("uploadFile", fileObj);
+            formData.append("uploadFile2", fileObj);
 
             console.log(fileObj);
             console.log(fileObj.name);
 
-            axios.post("/file", formData, {
+            axios.post("/axiosFile", formData, {
                 headers: {
                     "Content-Type": `multipart/form-data`
                 }
-            });
+            }).then((res) => { alert(res.data) });
 
         }
     </script>
 </head>
 <body>
-    <form>
+    <form action="/file" method="post" enctype="multipart/form-data">
         <input type="file" name="uploadFile">
+        <button type="submit">파일 업로드</button>
+    </form>
+
+    <form>
+        <input type="file" name="uploadFile2">
         <button type="button" onclick="upload()">파일 업로드</button>
     </form>
 </body>
