@@ -7,15 +7,30 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
-        async function signup() {
+        function signup() {
             const form = document.getElementById("signupForm");
-            const response = await axios.post("/user/postSignup");
+
+            const fileInput = document.querySelector("input[name=profile]");
+            const fileObj = fileInput.files[0];
+
+            let formData = new FormData();
+
+            formData.append("id", form.id.value);
+            formData.append("name", form.name.value);
+            formData.append("password", form.password.value);
+            formData.append("profile", fileObj);
+
+            axios.post("/user/postSignup", formData, {
+                headers: {"Content-Type": `multipart/form-data`}
+            }).then((res) => alert(res.data));
+            location.href = "/user/login";
         }
     </script>
 </head>
 <body>
     <form id="signupForm">
         <input type="text" name="id" placeholder="id"> <br>
+        <input type="text" name="name" placeholder="name"> <br>
         <input type="password" name="password" placeholder="password"> <br>
         <input type="file" name="profile"> <br>
         <button type="button" onclick="signup()">회원가입</button>

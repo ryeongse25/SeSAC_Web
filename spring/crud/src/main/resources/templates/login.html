@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        function login() {
+            const form = document.getElementById("loginForm");
+            axios.post("/user/postLogin", {id: form.id.value, password : form.password.value}).then((res) => alert(res.data));
+        }
+    </script>
+
+</head>
+<body>
+    <form id="loginForm">
+        <input type="text" name="id" placeholder="id"> <br>
+        <input type="password" name="password" placeholder="password"> <br>
+        <button type="button" onclick="login()">로그인</button>
+    </form>
+</body>
+</html>

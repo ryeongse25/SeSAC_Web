@@ -6,6 +6,7 @@ import sesac.crud.domain.User;
 import sesac.crud.repository.UserRepository;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,5 +17,9 @@ public class UserService {
 
     public void signup(User user) {
         userRepository.save(user);
+    }
+
+    public Optional login(String id, String password) {
+        return userRepository.findByIdAndPassword(id, password);
     }
 }
