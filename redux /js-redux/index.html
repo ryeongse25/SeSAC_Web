@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>redux</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js"></script>
+        <style>
+            .box {
+                width: 100px;
+                border: 2px solid black;
+                height: 100px;
+                text-align: center;
+                padding: 10px;
+            }
+        </style>
+        <script>
+            function reducer(state, action) {
+                // state : 현재 상태 -> 변경되기 전
+                // action : dispatch를 호출할 때 넣었던 객체
+                if (action.type === 'CHANGE') {
+                    return {color: action.color};
+                }
+            }
+
+            let store = Redux.createStore(reducer);
+            
+            // function changeToRed() {
+            //     let state = store.getState();
+            //     document.querySelector(".red_box").style.backgroundColor = state.color;
+            // }
+            // function changeToGreen() {
+            //     let state = store.getState();
+            //     document.querySelector(".green_box").style.backgroundColor = state.color;
+            // }
+            // function changeToYellow() {
+            //     let state = store.getState();
+            //     document.querySelector(".yellow_box").style.backgroundColor = state.color;
+            // }
+            function changeColor() {
+                let state = store.getState();
+                document.querySelector(".red_box").style.backgroundColor = state.color;
+                document.querySelector(".green_box").style.backgroundColor = state.color;
+                document.querySelector(".yellow_box").style.backgroundColor = state.color;
+            }
+            // store.subscribe(changeToRed);
+            // store.subscribe(changeToGreen);
+            // store.subscribe(changeToYellow);
+            store.subscribe(changeColor);
+        </script>
+    </head>
+    <body>
+        <div class="box red_box">
+            <h1>red</h1>
+            <button onclick="store.dispatch({type: 'CHANGE', color: 'red'})">실행</button>
+        </div>
+        <div class="box green_box">
+            <h1>green</h1>
+            <button onclick="store.dispatch({type: 'CHANGE', color: 'green'})">실행</button>
+        </div>
+        <div class="box yellow_box">
+            <h1>yellow</h1>
+            <button onclick="store.dispatch({type: 'CHANGE', color: 'yellow'})">실행</button>
+        </div>
+    </body>
+</html>

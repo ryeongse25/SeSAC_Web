@@ -1,0 +1,81 @@
+<html>
+    <head>
+
+        <title>방명록</title>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js"></script>
+
+        <style>
+            td {
+                width: 100px;
+                height: 30px;
+                padding-left: 10px;
+            }
+        </style>
+
+        <script>
+            let a = [1,2,3];
+            let b = a;
+            b.push(4);
+
+    
+            function reducer(state, action) {
+                // createStore 할 때
+                if ( state == undefined ) {
+                    return { cnt: 0, boards: [] };
+                }
+                if (action.type === 'WRITE') {
+                    state.boards.push({no: state.cnt + 1, name: action.name, content: action.content});
+                    return {cnt: state.cnt + 1, boards: state.boards};
+                }
+                if(action.type === 'DELETE') {
+                    const arr = state.boards.filter(board => board.no != action.no);
+                    return {cnt: state.cnt, boards: arr};
+                }
+            }
+
+            let store = Redux.createStore(reducer);
+
+            function writeBoard() {
+                let state = store.getState();
+                let tbody = document.querySelector("tbody");
+                let html = "";
+                for(let board of state.boards) {
+                    html += "<tr><td>" + board.no + "</td><td>" + board.name + "</td><td>" + board.content + "</td><td><button onclick=deleteBoard(" + board.no + ")>삭제</button></td></tr>"
+                }
+                tbody.innerHTML = html;
+            }
+
+            store.subscribe(writeBoard);
+
+            function clicked() {
+                let name = document.querySelector("input[name='name']");
+                let content = document.querySelector("input[name='content']");
+                store.dispatch({type: 'WRITE', name: name.value, content: content.value});
+            }
+
+            function deleteBoard(no) {
+                store.dispatch({type: 'DELETE', no: no});
+            }
+        </script>
+    </head>
+    <body>
+        이름 : <input type="text" name="name"> <br>
+        내용 : <input type="text" name="content">
+        <button onclick="clicked()">작성</button>
+
+        <hr>
+
+        <table border="1" cellspacing="0">
+            <thead>
+                <tr>
+                    <td>No.</td>
+                    <td>이름</td>
+                    <td>내용</td>
+                    <td>삭제</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </body>
+</html>
