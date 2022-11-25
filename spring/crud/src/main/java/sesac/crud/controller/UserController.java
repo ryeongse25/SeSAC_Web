@@ -2,6 +2,7 @@ package sesac.crud.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import sesac.crud.domain.User;
@@ -52,11 +53,23 @@ public class UserController {
     }
 
     @PostMapping("/postLogin")
-    @ResponseBody
-    public String postLogin(@RequestBody UserDTO userDTO) {
+    public String postLogin(UserDTO userDTO, Model model) {
         Optional result = userService.login(userDTO.getId(), userDTO.getPassword());
-        if (result.isPresent()) return "로그인 성공";
-        else return "로그인 실패";
+        if (result.isPresent()) {
+            Optional infos = userService.info(userDTO.getId());
+            User user = (User) infos.get();
+            model.addAttribute("id", user.getId());
+            model.addAttribute("name", user.getName());
+            model.addAttribute("password", user.getPassword());
+            model.addAttribute("profile", user.getProfile());
+            return "user";
+        }
+        else return "login";
     }
 
+    @PutMapping("/update")
+    @ResponseBody
+    public String update(@RequestBody UserDTO userDTO) {
+
+    }
 }

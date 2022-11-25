@@ -22,4 +22,8 @@ public class UserService {
     public Optional login(String id, String password) {
         return userRepository.findByIdAndPassword(id, password);
     }
+
+    public Optional info(String id) {
+        return userRepository.findById(id);
+    }
 }

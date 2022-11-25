@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원정보</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        async function updateInfo() {
+            const form = document.getElementById("updateForm");
+            if (form.profile.value == "") {
+                let result = await axios.put("/user/update", {id: form.id.value, name: form.name.value, password: form.password.value, profile: form.image.value});
+            } else {
+                let result = await axios.put("/user/update", {id: form.id.value, name: form.name.value, password: form.password.value, profile: form.profile.value});
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="updateForm">
+        id : <input th:value="${id}" name="id" readonly> <br>
+        name : <input th:value="${name}" name="name" required> <br>
+        password : <input type="password" th:value="${password}" name="password" required> <br>
+        <input type="hidden" name="image" th:value="${profile}">
+        <img th:src="'/upload/' + ${profile}"> <br>
+        <input type="file" name="profile" required style="width: 200px;"> <br>
+        <button type="button" onclick="updateInfo()">수정</button>
+    </form>
+</body>
+</html>
