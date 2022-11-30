@@ -7,39 +7,42 @@
             function minus(input1, input2) {
                 return input1 - input2;
             }
-            function multiple(input1, input2) {
+            function multiply(input1, input2) {
                 return input1 * input2;
             }
             function divide(input1, input2) {
                 return input1 / input2;
             }
 
-            function calculator() {
-                let input1 = document.getElementById("input1");
-                let input2 = document.getElementById("input2");
-                input1 = Number(input1.value);
-                input2 = Number(input2.value);
-                let operator = document.getElementById("operator");
+            function calculate() {
+                let input1 = document.getElementById("input1").value;
+                let input2 = document.getElementById("input2").value;
+                let operator = document.getElementById("operator").value;
                 let result = document.getElementById("result");
 
-                if (operator.value == "+") {
-                    result.value = add(input1, input2);
-                }
-                if (operator.value == "-") {
-                    result.value = minus(input1, input2);
-                }
-                if (operator.value == "*") {
-                    result.value = multiple(input1, input2);
-                }
-                if (operator.value == "/") {
-                    result.value = divide(input1, input2);
+                input1 = Number(input1);
+                input2 = Number(input2);
+
+                switch(operator) {
+                    case "+":
+                        result.value = add(input1, input2);
+                        break;
+                    case "-":
+                        result.value = minus(input1, input2);
+                        break;
+                    case "*":
+                        result.value = multiply(input1, input2);
+                        break;
+                    default:
+                        result.value = divide(input1, input2);
+                        break;
                 }
             }
             
             function reset() {
                 let inputs = document.querySelectorAll("input");
                 for (let i=0; i < inputs.length; i++) {
-                    inputs[i].value = ""
+                    inputs[i].value = "";
                 }
             }
         </script>
@@ -49,7 +52,7 @@
         값2: <input type="text" id="input2"> <br>
         연산자: <input type="text" id="operator"> <br>
         결과: <input type="text" id="result"> <br> <br>
-        <button type="button" onclick="calculator();">계산하기</button>
+        <button type="button" onclick="calculate();">계산하기</button>
         <button type="button" onclick="reset();">초기화</button>
     </body>
 </html>
