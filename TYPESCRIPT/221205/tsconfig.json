@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    // require
+    "module": "CommonJS",
+    // 실행환경에 맞게 코드를 변경한다
+    "target": "ES6"
+  },
+  "include": ["*.ts"],
+  "exclude": ["node_modules"]
+}
