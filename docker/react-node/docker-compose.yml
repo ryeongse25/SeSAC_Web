@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+    # 컨테이너 한 개
+    react:
+        # 컨테이너만 껐다가 켜도 수정된 코드가 반영이 된다.
+        volumes: 
+            - /app/node_modules
+            - ./client/:/app/
+        # 현재 위치의 도커파일을 기반으로 이미지를 만들겠다
+        build: 
+            context: ./client
+            # 이름이 다르면 이름을 설정할 수 있다
+            # dockerfile: Dockerfile1
+        ports:
+            # host port는 적지 않으면 랜덤으로 지정이 된다.
+            - "3000:3000"
+    # 컨테이너 두 개
+    node:
+        # 기본 이미지 사용
+        # image: "node:16"
+        #working_dir: /usr/src/app
+        volumes:
+            - /app/node_modules
+            # host 경로 : container 경로
+            - ./server/:/app
+        build: 
+            context: ./server
+        ports:
+            - "8000:8000"
+        # command: bash -c "npm install && node index"
