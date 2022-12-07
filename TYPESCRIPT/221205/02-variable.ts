@@ -1,19 +1,27 @@
-// : 타입 표기 ( Type Annotation )
+// 변수이름 : 타입 표기 ( Type Annotation ) = '값'
+
+// string
 let str: string = "hi";
+
+// number
 let num: number = 1;
+
+// boolean
 let flag: boolean = true;
 
-// 유니온 - 여러 타입 지정 가능
+// union - 여러 타입 지정 가능
 let age: number | string;
 age = 10;
 age = 'a';
+
 // any : 모든 타입 허용
 let any: any;
 
-// Array
+// array
 let arr1: number[] = [1, 2, 3, 4, 5];
 let arr2: string[] = ['a', 'b', 'c', 'd'];
 let arr3: Array<number> = [1, 2, 3, 4, 5];
+
 // Tuple : 길이와 타입을 바꿀 수 없음
 let arr4: [string, number] = ['str', 1];
 
