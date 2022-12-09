@@ -1,14 +1,12 @@
-import { BrowserRouter, Route, Routes  } from "react-router-dom";
-
 import Date from "./component/Date";
 import DateList from "./component/DateList";
 import Header from "./component/Header";
+import { BrowserRouter, Route, Routes  } from "react-router-dom";
 import EmptyPage from "./component/EmptyPage";
 import CreateDiary from "./component/CreateDiary";
 import CreateDate from "./component/CreateDate";
-
-import { createStore } from "redux";
-import { Provider } from "react-redux"
+import {createStore} from "redux";
+import {Provider} from "react-redux"
 import rootReducer from "./store/rootReducer";
 
 function App() {

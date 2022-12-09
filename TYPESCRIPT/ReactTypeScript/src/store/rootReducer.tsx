@@ -1,6 +1,6 @@
 import dateReducer from './dateReducer';
 import diaryReducer from './diaryReducer';
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 
 const rootReducer = combineReducers({
     dates: dateReducer,
