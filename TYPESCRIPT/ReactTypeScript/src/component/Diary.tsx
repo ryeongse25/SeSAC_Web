@@ -1,17 +1,23 @@
-import React from 'react';
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { TDiary } from '../type/Type';
 
-const Diary = ({ diary: d }) => {
-  const [diary, setDiary] = useState(d); 
-  // diary.~ 를 찾으면 property를 바로 찾을 수 있다.
-  // diary.id.foreach 이런 거 다 오류난다. ( 숫자에서는 foreach 못한다! );
-  const [isShow, setIsShow] = useState(false);
-  const dispatch = useDispatch();
+type DiaryProps = {
+    diary: TDiary
+}
 
-  function toggleShow() {
-    setIsShow(!isShow);
-  }
+// let r = { a: 1, b: 2 }
+// let { a: abc, b } = r
+const Diary = ({ diary: d }: DiaryProps) => {
+    const [diary, setDiary] = useState<TDiary>(d); 
+    // diary.~ 를 찾으면 property를 바로 찾을 수 있다.
+    // diary.id.foreach 이런 거 다 오류난다. ( 숫자에서는 foreach 못한다! );
+    const [isShow, setIsShow] = useState<boolean>(false);
+    const dispatch = useDispatch();
+
+    function toggleShow() {
+        setIsShow(!isShow);
+    }
 
   return (
     <tr>

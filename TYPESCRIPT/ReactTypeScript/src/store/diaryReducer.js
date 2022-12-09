@@ -1,3 +1,5 @@
+
+
 const diaryReducer = (state = [], action) => {
     if ( action.type === 'DIARY/WRITE' ) {
         state = [...state, action.payload ];
