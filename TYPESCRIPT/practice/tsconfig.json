@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        // 컴파일된 코드가 어떤 환경에서 실행될지 정의하는 부분
+        "target": "ES6",
+        "strict": false,
+    },
+    // 컴파일 과정에서 포함할 파일들
+    "include": ["src/**/*.ts"],
+    // 빌드 제외 항목
+    "exclude": ["node_nodules"]
+}
