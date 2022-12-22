@@ -1,4 +1,4 @@
 spring:
-    data:
-        mongodb:
-            uri: mongodb+srv://seryeong:lmsesac*@cluster0.xlqig7w.mongodb.net/test
+  data:
+    mongodb:
+      uri: mongodb+srv://seryeong:lmsesac*@cluster0.xlqig7w.mongodb.net/test

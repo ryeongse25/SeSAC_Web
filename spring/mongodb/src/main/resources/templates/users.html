@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>users</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>아이디</th>
+            <th>비밀번호</th>
+        </tr>
+        <tr th:each="item:${list}">
+            <td th:text="${item.u_id}">아이디</td>
+            <td th:text="${item.password}">비밀번호</td>
+        </tr>
+    </table>
+</body>
+</html>

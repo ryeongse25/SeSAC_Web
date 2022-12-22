@@ -2,6 +2,7 @@ package sesac.mongodb.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
@@ -9,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection="User")
 public class User {
 
-    private String id;
+    private ObjectId id;
+    private String u_id;
     private int password;
 }

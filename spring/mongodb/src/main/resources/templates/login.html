@@ -9,7 +9,7 @@
             const form = document.getElementById("loginForm");
 
             const response = axios.post("/user/login", {
-               id: form.id.value,
+               u_id: form.id.value,
                password: form.password.value
             });
             console.log(response.data);
